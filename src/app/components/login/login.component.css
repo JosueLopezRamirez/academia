@@ -1,0 +1,161 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* FONDO */
+.login-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(219, 0, 0, 0.85);
+  background: -moz-linear-gradient(-45deg, rgba(219, 0, 0, 0.85) 0%, rgba(0, 0, 255, 0.85) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(219, 0, 0, 0.85)), color-stop(100%, rgba(0, 0, 255, 0.85)));
+  background: -webkit-linear-gradient(-45deg, rgba(219, 0, 0, 0.85) 0%, rgba(0, 0, 255, 0.85) 100%);
+  background: -o-linear-gradient(-45deg, rgba(219, 0, 0, 0.85) 0%, rgba(0, 0, 255, 0.85) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(219, 0, 0, 0.85) 0%, rgba(0, 0, 255, 0.85) 100%);
+  background: linear-gradient(135deg, rgba(219, 0, 0, 0.85) 0%, rgba(0, 0, 255, 0.85) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#db0000', endColorstr='#0000ff', GradientType=1);
+  /* background-color: rgba(0, 0, 255, .6); */
+  /* background: url('../../../assets/img/fondo.jpg') repeat; */
+}
+
+/* FORMULARIO LOGIN */
+.login-container form {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 0px 75px 0px 75px;
+  box-shadow: rgba(0, 0, 0, 0.9) 0px 0px 20px;
+}
+
+/* IMAGEN DE CON LOGO DE LA EMPRESA */
+.line-1 img {
+  width: 150px;
+  height: 150px;
+  border-radius: 200px;
+  box-shadow: rgba(0, 0, 0, 0.9) 0px 0px 20px;
+  margin: 0px 20px 40px 60px;
+  /* padding-left: 30px; */
+}
+
+/* CONTENEDOR DE LOS INPUTS Y DE LOS ICONOS DE USUARIO Y PASSWORD */
+.line-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+  /* background-color: white; */
+}
+
+.line-2 .input {
+  border: 1px solid black;
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border: black solid 1px;
+  border-radius: 0px 20px 0px 20px;
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.9) 0px 0px 10px;
+  margin: 20px 0px;
+  /* flex-grow: 2; */
+}
+
+/* CONTENEDOR DEL BOTON INICIO DE SESION */
+.line-3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CONTENEDOR DE LOS ICONOS DE FONT-AWESOME */
+.input .img {
+  margin: auto;
+  padding: 5px;
+}
+
+/* INPUTS DE USERNAME Y PASSWORD */
+input {
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 0px 20px 0px 0px;
+  border: none;
+  outline: none;
+  flex-grow: .8;
+}
+
+/* TITULO DE LA PAGINA */
+h1 {
+  color: white;
+  margin: 20px 0px;
+}
+
+/* ESTILOS DEL BOTON */
+button {
+  font-size: 18px;
+  background: none;
+  color: white;
+  outline: none;
+  border: white 2px solid;
+  /* border-radius: 0px 15px 0px 15px; */
+  border-radius: 25px;
+  padding: 5px;
+  transition: all 300ms;
+}
+
+/* ESTILOS AL ESTAR SOBRE EL BOTON */
+button:hover {
+  background-color: white;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+  box-shadow: rgba(0, 0, 0, 0.9) 0px 0px 10px;
+  transform: scale(1.01);
+}
+
+/* Medias Querys */
+/* -------------------------------------------------------------------------------- */
+@media (max-width: 375px) and (max-height: 667px) {
+  .login-container {
+    justify-content: center;
+  }
+
+  .login-container form {
+    width: 95%;
+    height: 90%;
+    margin-right: 0rem;
+  }
+}
+
+@media (min-width: 410px) and (min-height: 730px) {
+  .login-container {
+    justify-content: center;
+  }
+
+  .login-container form {
+    width: 95%;
+    height: 70%;
+    margin-right: 0rem;
+  }
+}
+
+@media (width: 375px) and (height: 812px) {
+  .login-container {
+    justify-content: center;
+  }
+
+  .login-container form {
+    width: 95%;
+    height: 60%;
+    margin-right: 0rem;
+  }
+}

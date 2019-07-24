@@ -1,0 +1,133 @@
+<div class="record-component">
+  <div class="container">
+    <div class="row mb-5 my-3">
+      <div class="col-lg-12">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Filtrar Informacion
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <!-- Filtrar por Asesor -->
+          <mat-form-field class="pr-2">
+            <mat-label>Ejecutivo</mat-label>
+            <mat-select [(value)]="selectedLevel">
+              <mat-option *ngFor="let item of data" value="{{ item.name }}">{{ item.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!--  -->
+          <!-- Filtrar por plan de Inversion -->
+          <mat-form-field class="pr-2">
+            <mat-label>Plan</mat-label>
+            <mat-select [(value)]="selectedPlan">
+              <mat-option *ngFor="let item of planes" value="{{ item.name }}">{{ item.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!--  -->
+          <!-- Filtrar por Estrategia -->
+          <mat-form-field class="pr-2">
+            <mat-label>Estrategia</mat-label>
+            <mat-select [(value)]="selectedEstrategia">
+              <mat-option *ngFor="let item of estrategia" value="{{ item.name }}">{{ item.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!--  -->
+          <!-- Filtrar por Forma de Pago -->
+          <mat-form-field class="pr-2">
+            <mat-label>Forma de Pago</mat-label>
+            <mat-select [(value)]="selectedForma">
+              <mat-option *ngFor="let item of forma" value="{{ item.name }}">{{ item.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-action-row>
+              <button mat-raised-button>Click me</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+      </div>
+    </div>
+  </div>
+  <!-- ---------------------------------------------------------------------------- -->
+  <div class="container my-2">
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="fechaIng">
+          <th mat-header-cell class="pr-1" *matHeaderCellDef> Fecha/Ing </th>
+          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.fechaIng}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="no">
+          <th mat-header-cell class="pr-1" *matHeaderCellDef> No </th>
+          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.no}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="telefono">
+          <th mat-header-cell class="pr-1" *matHeaderCellDef> Tel </th>
+          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.telefono}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="titular">
+          <th mat-header-cell class="pr-1"*matHeaderCellDef> Titular </th>
+          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.titular}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="NoMat">
+          <th mat-header-cell class="pr-1" *matHeaderCellDef> NoMat </th>
+          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.NoMat}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="inscripcion">
+          <th mat-header-cell class="pr-1" *matHeaderCellDef> Ins </th>
+          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.inscripcion}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="plan">
+          <th mat-header-cell class="pr-1" *matHeaderCellDef> Plan </th>
+          <td mat-cell class="pr-2" *matCellDef="let element"> {{element.plan}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="valorMes">
+          <th mat-header-cell class="pr-1" *matHeaderCellDef> Mes </th>
+          <td mat-cell class="pr-2" *matCellDef="let element"> {{element.valorMes}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="valorTotal">
+          <th mat-header-cell class="pr-1" *matHeaderCellDef> Total </th>
+          <td mat-cell class="pr-2" *matCellDef="let element"> {{element.valorTotal}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ejecutivo">
+          <th mat-header-cell *matHeaderCellDef> Ejec. </th>
+          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.ejecutivo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="estrategia">
+          <th mat-header-cell *matHeaderCellDef> Estrategia </th>
+          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.estrategia}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="formaPago">
+          <th mat-header-cell *matHeaderCellDef> FormaPago </th>
+          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.formaPago}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="observacion">
+          <th mat-header-cell *matHeaderCellDef> Observacion </th>
+          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.observacion}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[10, 15, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+
+  </div>
+</div>

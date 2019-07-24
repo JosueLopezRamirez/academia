@@ -1,0 +1,86 @@
+<div class="login-container">
+  <!-- Login -->
+  <form>
+    <div class="container mb-4">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-sm-12">
+            <h1 id="texto">Excellence Global English</h1>
+          </div>
+        </div>
+      </div>
+      <!-- Separador -->
+      <div class="container-fluid my-0">
+        <div class="row justify-content-around align-items-center">
+          <div class="col-sm-4">
+            <div class="line-1">
+              <img src="../../assets/img/Logo.jpg">
+            </div>
+          </div>
+          <!-- Separador -->
+          <div class="col-sm-6">
+            <div class="line-2">
+              <div class="input">
+                <div class="img">
+                  <i class="fas fa-user fa-1x"></i>
+                </div>
+                <input id="username" [(ngModel)]="usuario.username" name="username" type="text" placeholder="Usuario">
+              </div>
+              <div class="input">
+                <div class="img">
+                  <i class="fas fa-key fa-1x"></i>
+                </div>
+                <input id="password" [(ngModel)]="usuario.password" name="password" type="password" placeholder="Contraseña">
+              </div>
+            </div>
+            <div class="container">
+              <!-- BOTON INICIO -->
+              <div class="row justify-content-center my-1">
+                <div class="col-sm-11">
+                  <button id="enviar" class="btn btn-block" (click)="onUsuarioLogeado(usuario)" type="submit">Iniciar
+                    Sesión</button>
+                </div>
+              </div>
+              <!-- BOTON FIN -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
+    </div>
+  </form>
+</div>
+
+
+
+<!--
+  <form>
+      <h1>Excellence Global English</h1>
+      <div class="form">
+        <div class="line-1">
+            <img src="../../assets/img/Logo.jpg">
+        </div>
+          <div class="line-2">
+              <div class="input">
+                  <div class="img">
+                    <i class="fas fa-user fa-2x"></i>
+                  </div>
+                  <input [(ngModel)]="usuario.username" name="username" type="text" placeholder="Usuario">
+              </div>
+              <div class="input">
+                  <div class="img">
+                    <i class="fas fa-key fa-2x"></i>
+                  </div>
+                  <input [(ngModel)]="usuario.password" name="password" type="password" placeholder="Contraseña">
+              </div>
+          </div>
+      </div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-sm-12">
+              <button class="btn btn-block" (click)="onUsuarioLogeado(usuario)" type="submit">Iniciar Sesion</button>
+          </div>
+        </div>
+      </div>
+    </form>
+ -->
