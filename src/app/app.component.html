@@ -1,7 +1,7 @@
 <div class="fondo">
-  <app-login (usuarioLogeado)="setLogeado($event)" *ngIf="getLoginStatus()"></app-login>
+  <app-login (usuarioLogeado)="setLogeado($event)" *ngIf="!getLoginStatus()"></app-login>
 
-  <div *ngIf="!getLoginStatus()">
+  <div *ngIf="getLoginStatus()">
     <app-main></app-main>
   </div>
 </div>
