@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { RecordProduccion } from './RecordProduccion';
+import { RecordProduccion } from '../../../model/RecordProduccion';
 import { PlanService } from 'src/app/services/plan.service';
 import { Plan } from 'src/app/model/Plan';
 import { MatPaginator,MatTableDataSource } from '@angular/material';
