@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../model/Usuario';
+import { User } from '../model/Petitions/User';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +14,9 @@ export class LoginService {
 
   private urlEndPoint:string = "http://localhost:8080/users/findAllUsers";
 
-  getUsuario(): Observable<Usuario[]>{
+  getUsuario(): Observable<User[]>{
     return this.http.get(this.urlEndPoint).pipe(
-      map( (res) => res as Usuario[])
+      map( (res) => res as User[])
     );
   }
 }
