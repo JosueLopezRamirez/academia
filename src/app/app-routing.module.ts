@@ -10,7 +10,8 @@ const routes: Routes = [
   {path:'reserva', component: ReservaComponent},
   {path:'record', component: RecordComponent},
   {path:'reportes', component: RecordComponent},
-  {path:'historial', component: GreenCardComponent}
+  {path:'historial', component: GreenCardComponent},
+  {path:'', component: ReservaComponent}
   
 ];
 

@@ -19,9 +19,9 @@ export class LoginComponent implements OnInit{
     for(let i = 0;i<this.users.length;i++){
       if(this.users[i].username == this.usuario.getUsername() && this.users[i].password == this.usuario.getPassword()){
         usuario.setStatusLogin(true);
+        this.usuarioLogeado.emit(usuario);
       }
     }
-    this.usuarioLogeado.emit(usuario);
     console.log("Login Exitoso..");
   }
 
@@ -32,8 +32,7 @@ export class LoginComponent implements OnInit{
   }
 
   constructor(private loginService: LoginService) {
-    console.log("LoginComponent Cargado Exitosamente...");
-    
+    //console.log("LoginComponent Cargado Exitosamente...");
   }
 
   // Definiendo las variables

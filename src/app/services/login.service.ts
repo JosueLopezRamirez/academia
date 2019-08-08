@@ -12,7 +12,7 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  private urlEndPoint:string = "http://localhost:8080/users/findAllUsers";
+  private urlEndPoint:string = "http://localhost:8080/excellence/users/findAllUsers";
 
   getUsuario(): Observable<User[]>{
     return this.http.get(this.urlEndPoint).pipe(

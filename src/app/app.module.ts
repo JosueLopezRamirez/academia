@@ -37,8 +37,9 @@ import { GreenCardComponent } from './components/recepcion/green-card/green-card
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, //Se importa para el soporte de formularios de angular
-    HttpClientModule, MaterialModule,
+    FormsModule,
+    HttpClientModule,
+    MaterialModule,
     BrowserAnimationsModule
   ],
   providers: [],
