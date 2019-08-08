@@ -5,6 +5,10 @@ import { ReservaComponent } from './components/recepcion/reserva/reserva.compone
 import { RecordComponent } from './components/recepcion/record/record.component';
 import { GreenCardComponent } from './components/recepcion/green-card/green-card.component';
 
+/* children: [
+  {path:'', component:Dia},
+]*/
+
 const routes: Routes = [
   {path:'registro', component: RegistroComponent},
   {path:'reserva', component: ReservaComponent},

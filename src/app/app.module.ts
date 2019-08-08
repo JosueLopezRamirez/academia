@@ -31,8 +31,7 @@ import { GreenCardComponent } from './components/recepcion/green-card/green-card
     PanelComponent,
     RecordComponent,
     RegistroComponent,
-    GreenCardComponent,
-    
+    GreenCardComponent
   ],
   imports: [
     BrowserModule,
