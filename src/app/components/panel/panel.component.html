@@ -57,7 +57,7 @@
       </ul>
     </div>
     <!-- Seccion Administrador -->
-    <div class="administracion" *ngIf="false">
+    <div class="administracion" *ngIf="true">
       <ul class="nav flex-column align-items-center">
         <div class="container pl-0 pr-0">
           <hr style="background-color: white; margin: 15px -15px;">
@@ -66,22 +66,12 @@
           </div>
           <hr style="background-color: white; margin: 15px -15px;">
         </div>
-        <!-- Lista -->
-        <li class="nav-item">
-          <div class="container">
-            <div class="row justify-content-center" routerLinkActive="active">
-              <a style="font-size: 0.8rem;  color: white;" class="nav-link" href="#" routerLink="/estado-cuenta">
-                Estado de Cuenta
-              </a>
-            </div>
-          </div>
-        </li>
         <!--  -->
         <li class="nav-item">
           <div class="container">
             <div class="row justify-content-center" routerLinkActive="active">
-              <a style="font-size: 0.8rem;  color: white;" class="nav-link" href="#" routerLink="/clientes">
-                Lista de Clientes
+              <a class="nav-link" href="#" routerLink="/clientes">
+                <p class="text-light" style="font-size: .8rem">Lista de Clientes</p>
               </a>
             </div>
           </div>
@@ -91,7 +81,7 @@
           <div class="container">
             <div class="row justify-content-center" routerLinkActive="active">
               <a style="font-size: 0.8rem;  color: white;" class="nav-link" href="#" routerLink="/pagos-pendientes">
-                Pagos Pendientes
+                <p class="text-light" style="font-size: .8rem">Pagos Pendientes</p>
               </a>
             </div>
           </div>
@@ -100,8 +90,8 @@
         <li class="nav-item">
           <div class="container">
             <div class="row justify-content-center" routerLinkActive="active">
-              <a style="font-size: 0.8rem;  color: white;" class="nav-link" href="#" routerLink="/pagos-atrasados">
-                Pagos Atrasados
+              <a style="font-size: 0.8rem;  color: white;" class="nav-link" href="#" routerLink="/estado-cuenta">
+                <p class="text-light" style="font-size: .8rem">Estado Cuenta</p>
               </a>
             </div>
           </div>
@@ -111,7 +101,7 @@
           <div class="container">
             <div class="row justify-content-center" routerLinkActive="active">
               <a style="font-size: 0.8rem;  color: white;" class="nav-link" href="#" routerLink="/reportes">
-                Reportes
+                <p class="text-light" style="font-size: .8rem">Reportes</p>
               </a>
             </div>
           </div>

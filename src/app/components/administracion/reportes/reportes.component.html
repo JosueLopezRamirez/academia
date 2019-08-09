@@ -1,0 +1,88 @@
+<div class="record-component">
+  <div class="container justify-content-start">
+    <div class="row mb-4" style="height: 20vh;">
+      <div class="col-lg-12">
+        <!-- Barra de herramientas -->
+	        <div class="bg-success my-1" style="width: 100%;" >
+	         	 <div class="card">
+
+					<div class="card-header d-flex flex-row text-center py-1 
+					   justify-content-between align-items-center">
+              			<p>Generar reportes por filtracion</p> 
+              			  <div class="" style="margin-left: 580px; margin-bottom: 2px;"> <input type="text" name="'buscar" placeholder="Buscar informe por..."> </div>
+                       <div class="btn btn-primary">Buscar</div> 
+                    </div>
+
+                    <div class="container">
+                         <div class="row">
+                          <div class="col-md-12 "  >
+                            <div class="card-body d-flex flex-row justify-content-end">
+                            	<div class="card mr-2" style="width: 25%; ">
+                          <div class="card-header text-center py-1 bg-danger text-white">
+                            Ejecutivo
+
+                          </div> 
+
+
+
+                          <div class="card-body justify-content-center p-0">
+                          
+                            <select style="width: 100%; border-radius: 0px;" class="btn btn-light" [(ngModel)]="selectedLevel"
+                              (change)="selected()">
+                              <option *ngFor="let item of data" [ngValue]="item">{{item.name}}</option>
+
+                            </select>
+                          </div>
+                        </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+	         	 </div>
+	         </div>
+	    </div>
+	</div>
+ </div>
+
+		<div class="container my-2">
+		    <div class="row justify-content-center" style="height: 70vh;">
+		      <!-- Tabla a mostrar -->
+		      <div class="col-lg-12">
+		        <div class="card border-primary mb-3 my-3">
+		          <div class="card-header">Reportes - Mensualidad</div>
+		          <div class="card-body text-primary">
+		            <table class="table table-bordered table-striped" style="font-size: .8rem;">
+              <thead class="bg-danger" style="height: 5vh;">
+                <tr>
+                  
+
+                  <th>Nombre alumno</th>
+                  <th>Fecha_Ingreso.</th>
+                  <th>Titular</th>
+                  <th>Mensualidad</th>
+                  <th>Fecha_Vencimiento</th>
+                  <th>Estado_alumno</th>
+                  <th>Abono</th>
+                  <th>Saldo</th>
+                  <th>Mora</th>
+                  <th>Forma pago</th>
+                  <!-- <th>Obervaciones</th> -->
+                </tr>
+              </thead>
+            </table>
+		      
+		      <button type="submit" class="btn btn-danger" style="margin-left: 920px;" >Exportar</button>
+
+		          </div>
+		        </div>
+		      
+		      </div>
+
+		    </div>
+		</div>
+
+
+
+</div>
