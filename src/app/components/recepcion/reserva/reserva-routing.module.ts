@@ -7,7 +7,7 @@ import { ReservaComponent } from './reserva.component';
 const routes: Routes = [
   {path: 'reserva', component: ReservaComponent,
   children: [
-    {path:':lunes',component: DiaComponent},
+    {path:'',component: DiaComponent},
     {path:':martes',component: DiaComponent},
     {path:':miercoles',component: DiaComponent},
     {path:':jueves',component: DiaComponent},
