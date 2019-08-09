@@ -1,10 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DiaComponent } from './dia/dia.component';
+import { ReservaComponent } from './reserva.component';
 
 
 const routes: Routes = [
-  {path:'lunes',component: DiaComponent}
+  {path: 'reserva', component: ReservaComponent,
+  children: [
+    {path:':lunes',component: DiaComponent},
+    {path:':martes',component: DiaComponent},
+    {path:':miercoles',component: DiaComponent},
+    {path:':jueves',component: DiaComponent},
+    {path:':viernes',component: DiaComponent},
+    {path:':sabado',component: DiaComponent},
+  ]}
 ];
 
 @NgModule({

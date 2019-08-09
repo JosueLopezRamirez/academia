@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-dia',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dia.component.css']
 })
 export class DiaComponent implements OnInit {
+
+  @Input() texto: string;
 
   constructor() { }
 
