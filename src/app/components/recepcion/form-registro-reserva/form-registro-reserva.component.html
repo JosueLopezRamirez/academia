@@ -1,0 +1,46 @@
+<div class="card bg-light text-black m-2 pb-0">
+  <div class="card-body p-3">
+    <form (ngSubmit)="reservar()">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group row">
+              <label for="codigo" class="col-form-label col-sm-4">Codigo</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" [(ngModel)]="reserva.codigo" name="codigo" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="nombre" class="col-form-label col-sm-4">Tutoria</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" [(ngModel)]="reserva.tutoria" name="tutoria" readonly>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="col-sm-6">
+            <div class="form-group row">
+              <label for="nombre" class="col-form-label col-sm-4">Unidad</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" [(ngModel)]="reserva.unidad" name="unidad" readonly>
+              </div>
+            </div>
+            <!--  -->
+            <div class="form-group row">
+              <label for="nombre" class="col-form-label col-sm-4">Nivel</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" [(ngModel)]="reserva.nivel" name="nivel" readonly>
+              </div>
+            </div>
+            <!--  -->
+          </div>
+        </div>
+        <div *ngIf="reserva.codigo != null" class="form-group row">
+          <div class="col-sm-12 d-flex justify-content-end">
+            <button class="btn btn-primary" role="button">Registrar Reserva</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

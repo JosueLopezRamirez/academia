@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Reserva } from 'src/app/model/Reserva';
 
 @Component({
   selector: 'app-reserva',
@@ -7,14 +6,6 @@ import { Reserva } from 'src/app/model/Reserva';
   styleUrls: ['./reserva.component.css']
 })
 export class ReservaComponent implements OnInit {
-
-  realizarReserva: Reserva;
-
-  setReserva(reserva: Reserva){
-    this.realizarReserva.fecha = reserva.fecha;
-    this.realizarReserva.texto = reserva.texto;
-    this.realizarReserva.title = reserva.title;
-  }
 
   constructor() {}
 

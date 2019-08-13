@@ -12,31 +12,31 @@
           <div class="container pl-0 pr-0">
             <div class="row">
               <div class="col-lg-6">
-                <input type="text" placeholder="Nombres" required>
+                <input type="text" placeholder="Nombres" [(ngModel)]="personaTitular.nombre" name="nombreTitular" required>
               </div>
               <div class="col-lg-6">
-                <input type="text" placeholder="Apellidos" required>
+                <input type="text" placeholder="Apellidos" [(ngModel)]="personaTitular.apellido" name="apellidoTitular" required>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-3 pr-0">
+              <!-- <div class="col-md-3 pr-0">
                 <input type="text" placeholder="Fecha de Nacimiento" required>
               </div>
               <div class="col-md-3">
                 <input type="text" placeholder="Estado Civil" required>
-              </div>
-              <div class="col-md-3 pr-0">
+              </div> -->
+              <!-- <div class="col-md-3 pr-0">
                 <input type="text" placeholder="Profesion" required>
-              </div>
-              <div class="col-md-3">
-                <input type="text" placeholder="Cedula de Identidad" required>
+              </div> -->
+              <div class="col-md-6">
+                <input type="text" placeholder="Cedula de Identidad" [(ngModel)]="clienteTitular.cedula" required>
               </div>
             </div>
             <div class="row flex-row">
               <div class="col-md-6">
-                <textarea class="my-1 mb-0" placeholder="Direccion Residencia" name="" id="" cols="67"
+                <textarea class="my-1 mb-0" placeholder="Direccion Residencia" [(ngModel)]="clienteTitular.direccionCliente" name="" id="" cols="67"
                   rows="2"></textarea>
-                <input class="my-0" type="text" placeholder="Empresa" required>
+                <input class="my-0" type="text" placeholder="Empresa" [(ngModel)]="titular.nombreTrabajo" required>
               </div>
               <div class="col-md-6">
                 <div class="container">
@@ -61,37 +61,36 @@
                       <!-- <div class="custom-control custom-checkbox">
                               <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
                               <label class="custom-control-label" for="defaultUnchecked">Hogar</label>
-                          </div> -->
+                      </div> -->
                     </div>
                     <div class="container">
                       <div class="row">
                         <div class="col-sm-8 pl-0 pr-0">
-                          <textarea class="my-2 pb-0" placeholder="Direccion Trabajo" name="" id="" cols="40"
+                          <textarea class="my-2 pb-0" placeholder="Direccion Trabajo" [(ngModel)]="titular.direccionTrabajo" name="" id="" cols="40"
                             rows="2"></textarea>
                         </div>
                         <div class="col-sm-4 pl-0 pr-0">
-                          <input class="my-2" type="text" placeholder="Telefono" style="height: 50px;" required>
+                          <input class="my-2" type="text" placeholder="Telefono Trabajo" [(ngModel)]="titular.telefonoTrabajo" style="height: 50px;" required>
                         </div>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-2 pr-1">
+            <!-- <div class="col-sm-2 pr-1">
               <input type="text" placeholder="Fecha de Ingreso" required>
             </div>
             <div class="col-sm-2 pl-0 pr-1">
               <input type="text" placeholder="Cargo" required>
+            </div> -->
+            <div class="col-sm-2 pl-3">
+              <input type="text" placeholder="Ingreso Mensual" [(ngModel)]="titular.salario" required>
             </div>
-            <div class="col-sm-2 pl-0">
-              <input type="text" placeholder="Ingreso Mensual" required>
-            </div>
-            <div class="col-sm-6">
-              <input type="email" placeholder="Email" required>
+            <div class="col-sm-4">
+              <!-- <input type="email" placeholder="Email" required> -->
             </div>
           </div>
         </div>
@@ -101,7 +100,7 @@
   <!-- ----------------------------------------------------------------------- -->
   <!-- -----------------------------Referencias------------------------------- -->
   <!-- ----------------------------------------------------------------------- -->
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-lg-12">
       <div class="card my-1">
         <div class="card-header text-center p-1">Referencias</div>
@@ -137,7 +136,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- ----------------------------------------------------------------------- -->
   <!-- ----------------------Condiciones Economicas--------------------------- -->
   <!-- ----------------------------------------------------------------------- -->
@@ -147,18 +146,22 @@
         <div class="card-header text-center p-1">Condiciones Economicas</div>
         <div class="card-body d-flex flex-row justify-content-around" style="padding: 2px 0px;">
           <!-- Plan -->
-          <div class="card m-0 p-0 mr-2 d-flex flex-row" style="width: 15%;">
+          <div class="card m-0 p-0 mr-2 d-flex flex-row">
             <div class="card-header text-center py-1 bg-danger text-white">
-              Plan
+              Meses
             </div>
             <div class="card-body justify-content-center p-0">
               <select style="width: 100%; border-radius: 0px;" class="btn btn-light" [(ngModel)]="selectedPlan"
                 (change)="selected()">
-                <option *ngFor="let item of plan" [ngValue]="item">{{item.name}}</option>
+                <option *ngFor="let item of planes" [ngValue]="item.cantidadMeses">{{item.cantidadMeses}}</option>
               </select>
             </div>
           </div>
-          <input type="text" placeholder="Abono Material" style="width: 30%;">
+          <input type="text" placeholder="Valor total" style="width: 100px" [(ngModel)]="planSeleccionado.valorTotal" value="{{planSeleccionado.valorTotal}}">
+          <input type="text" placeholder="Abono" style="width: 80px">
+          <input type="text" placeholder="Inscripcion" style="width: 100px" [(ngModel)]="planSeleccionado.inscripcion" value="{{planSeleccionado.inscripcion}}">
+          <input type="text" placeholder="Costo mensual" style="width: 120px" [(ngModel)]="planSeleccionado.costoMensual" value="{{planSeleccionado.costoMensual}}">
+          <input type="text" placeholder="Valor restante" style="width: 100px">
           <!-- Forma de Pago -->
           <div class="card m-0 p-0 mr-2 d-flex flex-row" style="width: 30%;">
               <div class="card-header text-center py-1 bg-danger text-white">
@@ -166,7 +169,7 @@
               </div>
               <div class="card-body justify-content-center p-0">
                 <select style="width: 100%; border-radius: 0px;" class="btn btn-light" [(ngModel)]="selectedForma"
-                  (change)="selected()">
+                  (change)="selectedFormaPago()">
                   <option *ngFor="let item of forma" [ngValue]="item">{{item.name}}</option>
                 </select>
               </div>
@@ -214,6 +217,7 @@
           </div>
         </div>
       </div>
+      
     </div>
   </div>
 </div>

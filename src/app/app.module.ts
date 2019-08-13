@@ -22,8 +22,7 @@ import { GreenCardComponent } from './components/recepcion/green-card/green-card
 import { ReservaModule } from './components/recepcion/reserva/reserva.module';
 import { EstadoCuentaComponent } from './components/administracion/estado-cuenta/estado-cuenta.component';
 import { ReportesComponent } from './components/administracion/reportes/reportes.component';
-import { CardComponent } from './components/card/card.component';
-//import { BarraDiasComponent } from './components/recepcion/reserva/barra-dias/barra-dias.component';
+import { FormRegistroReservaComponent } from './components/recepcion/form-registro-reserva/form-registro-reserva.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +36,7 @@ import { CardComponent } from './components/card/card.component';
     GreenCardComponent,
     EstadoCuentaComponent,
     ReportesComponent,
-    CardComponent/*,
-    BarraDiasComponent*/
+    FormRegistroReservaComponent
   ],
   imports: [
     BrowserModule,

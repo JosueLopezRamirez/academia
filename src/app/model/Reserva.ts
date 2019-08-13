@@ -1,6 +1,8 @@
 
 export class Reserva {
-  title: string;
-  texto: string;
-  fecha: string;
+  codigo: string;
+  nivel: Number;
+  unidad: string;
+  tutoria: string;
+  
 }

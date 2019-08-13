@@ -1,5 +1,5 @@
 <div class="record-component">
-  <div class="container">
+  <!-- <div class="container">
     <div class="row mb-5 my-3">
       <div class="col-lg-12">
         <mat-expansion-panel>
@@ -9,31 +9,27 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
 
-          <!-- Filtrar por Asesor -->
           <mat-form-field class="pr-2">
             <mat-label>Ejecutivo</mat-label>
             <mat-select [(value)]="selectedLevel">
               <mat-option *ngFor="let item of data" value="{{ item.name }}">{{ item.name }}</mat-option>
             </mat-select>
           </mat-form-field>
-          <!--  -->
-          <!-- Filtrar por plan de Inversion -->
+          
           <mat-form-field class="pr-2">
             <mat-label>Plan</mat-label>
             <mat-select [(value)]="selectedPlan">
               <mat-option *ngFor="let item of planes" value="{{ item.name }}">{{ item.name }}</mat-option>
             </mat-select>
           </mat-form-field>
-          <!--  -->
-          <!-- Filtrar por Estrategia -->
+          
           <mat-form-field class="pr-2">
             <mat-label>Estrategia</mat-label>
             <mat-select [(value)]="selectedEstrategia">
               <mat-option *ngFor="let item of estrategia" value="{{ item.name }}">{{ item.name }}</mat-option>
             </mat-select>
           </mat-form-field>
-          <!--  -->
-          <!-- Filtrar por Forma de Pago -->
+          
           <mat-form-field class="pr-2">
             <mat-label>Forma de Pago</mat-label>
             <mat-select [(value)]="selectedForma">
@@ -47,7 +43,7 @@
         </mat-expansion-panel>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- ---------------------------------------------------------------------------- -->
   <div class="container my-2">
     <div class="mat-elevation-z8">

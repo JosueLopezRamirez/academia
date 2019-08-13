@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { ReservaRoutingModule } from './reserva-routing.module';
 import { DiaComponent } from './dia/dia.component';
+import { HoraReservaComponent } from './hora-reserva/hora-reserva.component';
 
 @NgModule({
   declarations: [
-    DiaComponent
+    DiaComponent,
+    HoraReservaComponent
   ],
   imports: [
     CommonModule,

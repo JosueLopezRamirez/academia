@@ -26,15 +26,15 @@ export class GreenCardComponent implements OnInit {
   }
 
   private historial: Historial[] = [
-    {nivel: 1, tutoria:'UR1',aprobado:'Aprovado',horas:1},
-    {nivel: 1, tutoria:'CC1',aprobado:'Aprovado',horas:3},
-    {nivel: 1, tutoria:'UR2',aprobado:'Aprovado',horas:2},
-    {nivel: 1, tutoria:'CC2',aprobado:'Aprovado',horas:2},
-    {nivel: 1, tutoria:'UR3',aprobado:'Aprovado',horas:1},
-    {nivel: 1, tutoria:'CC3',aprobado:'Aprovado',horas:1},
-    {nivel: 1, tutoria:'UR4',aprobado:'Aprovado',horas:1},
-    {nivel: 1, tutoria:'CC4',aprobado:'Aprovado',horas:3},
-    {nivel: 1, tutoria:'UR5',aprobado:'Aprovado',horas:2},
-    {nivel: 1, tutoria:'CC5',aprobado:'Aprovado',horas:1},
+    {nivel: 1, tutoria:'UR1',aprobado:'Aprobado',horas:1},
+    {nivel: 1, tutoria:'CC1',aprobado:'Aprobado',horas:3},
+    {nivel: 1, tutoria:'UR2',aprobado:'Aprobado',horas:2},
+    {nivel: 1, tutoria:'CC2',aprobado:'Aprobado',horas:2},
+    {nivel: 1, tutoria:'UR3',aprobado:'Aprobado',horas:1},
+    {nivel: 1, tutoria:'CC3',aprobado:'Aprobado',horas:1},
+    {nivel: 1, tutoria:'UR4',aprobado:'Aprobado',horas:1},
+    {nivel: 1, tutoria:'CC4',aprobado:'Aprobado',horas:3},
+    {nivel: 1, tutoria:'UR5',aprobado:'Aprobado',horas:2},
+    {nivel: 1, tutoria:'CC5',aprobado:'Aprobado',horas:1},
   ];
 }

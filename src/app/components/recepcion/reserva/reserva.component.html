@@ -24,13 +24,15 @@
             </li>
           </ul>
         </div>
-        <div class="m-0 p-0">
-            <label class="nav-item pr-2">Dia: </label>
-            <mat-form-field>
-              <input matInput [matDatepicker]="picker">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
+        <div class="m-0 p-0 d-flex flex-row">
+            <!-- <label class="nav-item pr-2">Dia: </label> -->
+            <div class="p-0 m-0">
+              <mat-form-field>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
         </div>
       </nav>
     </div>
