@@ -1,8 +1,10 @@
+import { Cliente } from './Cliente';
+
 export class Titular {
-    id:Number;
-    cliente_id:Number;
-    salario:Number;
-    nombreTrabajo:string;
-    direccionTrabajo:string;
-    telefonoTrabajo:string;
+    id: string;
+    cliente: Cliente;
+    nombreTrabajo: string;
+    salario: Number;
+    direccionTrabajo: string;
+    telefonoTrabajo: string;
 }

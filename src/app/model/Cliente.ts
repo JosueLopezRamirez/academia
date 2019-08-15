@@ -1,6 +1,8 @@
+import { Persona } from './Persona';
+
 export class Cliente {
     id:Number;
-    persona_id:Number;
-    direccionCliente:string;
+    persona: Persona;
+    direccion:string;
     cedula:string;
 }

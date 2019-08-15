@@ -1,7 +1,7 @@
 
 export class Alumno{
-    nombre: String;
-    codigo: String;
-    telefono: String;
-    celular: String;
+    id: String;
+    cliente_id: Number;
+    activo: boolean;
+    nivel: Number;
 }

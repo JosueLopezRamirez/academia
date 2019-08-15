@@ -23,6 +23,10 @@ import { ReservaModule } from './components/recepcion/reserva/reserva.module';
 import { EstadoCuentaComponent } from './components/administracion/estado-cuenta/estado-cuenta.component';
 import { ReportesComponent } from './components/administracion/reportes/reportes.component';
 import { FormRegistroReservaComponent } from './components/recepcion/form-registro-reserva/form-registro-reserva.component';
+import { PersonaService } from './services/persona.service';
+import { ClienteService } from './services/cliente.service';
+import { TitularService } from './services/titular.service';
+import { AlumnoService } from './services/alumno.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,12 @@ import { FormRegistroReservaComponent } from './components/recepcion/form-regist
     BrowserAnimationsModule,
     ReservaModule
   ],
-  providers: [],
+  providers: [
+    PersonaService,
+    ClienteService,
+    TitularService,
+    AlumnoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

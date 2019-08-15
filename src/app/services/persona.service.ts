@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Persona } from '../model/Persona';
-// import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map,} from 'rxjs/operators';
 
 @Injectable()
 export class PersonaService {
-  private urlEndPoint: string = 'http://localhost:8081/api/personas';
+  private urlEndPoint: string = 'http://localhost:8080/excellence/api/personas';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Alumno } from '../../../model/Alumno';
 import { Historial } from '../../../model/Historial';
+import { Persona } from 'src/app/model/Persona';
+import { Cliente } from '../../../model/Cliente';
+import { Telefono } from 'src/app/model/Telefono';
 
 @Component({
   selector: 'app-green-card',
@@ -8,6 +11,9 @@ import { Historial } from '../../../model/Historial';
 })
 export class GreenCardComponent implements OnInit {
 
+  private alumnoPersona: Persona = new Persona();
+  private alumnoCliente: Cliente = new Cliente();
+  private alumnoTelefono: Telefono = new Telefono();
   private alumno: Alumno = new Alumno();
   private value: boolean = false;
   constructor() { }
@@ -16,9 +22,9 @@ export class GreenCardComponent implements OnInit {
   }
 
   public search(): void{
-    this.alumno.codigo = '00001';
-    this.alumno.celular = '77209432';
-    this.alumno.telefono = '';
+    this.alumno.id = '00001';
+    this.alumnoTelefono.telefono = '77209432';
+    // this.alumno.telefono = '';
     console.log("Clicked");
     console.log(this.alumno);
     this.value = true;

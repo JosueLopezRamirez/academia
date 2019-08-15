@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Plan } from '../model/Plan';
-import { Observable } from 'rxjs';
+import { Forma } from '../model/Forma';
+import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-
 @Injectable({
   providedIn: 'root'
 })
-export class PlanService {
+export class FormaService {
 
   constructor(private http: HttpClient) { }
 
-  private urlEndPoint:string = "http://localhost:8080/excellence/api/planes";
+  private urlEndPoint:string = "http://localhost:8080/excellence/api/formas";
 
-  getPlan(): Observable<Plan[]>{
+  getForma(): Observable<Forma[]>{
     return this.http.get(this.urlEndPoint).pipe(
-      map( (res) => res as Plan[])
+      map( (res) => res as Forma[])
     );
   }
 }
