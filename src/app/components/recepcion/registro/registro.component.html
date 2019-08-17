@@ -1,22 +1,23 @@
 <div class="container d-flex justify-content-center aling-items-center flex-column" style="height: 100vh;">
-  <form (ngSubmit)="create()">
-    <!-- ----------------------------------------------------------------------- -->
-    <!-- -----------------------------Titular------------------------------- -->
-    <!-- ----------------------------------------------------------------------- -->
-    <div class="row justify-content-around">
-      <div class="col-lg-2">
-        <input type="text" placeholder="Codigo Matricula" [(ngModel)]="titular.id" name="id" required>
-        <!-- <p>{{ titular.id }}</p> -->
-      </div>
-      <div class="col-lg-4"></div>
-      <div class="col-lg-2">
-        <mat-form-field class="p-0 m-0">
-          <input matInput [matDatepicker]="picker" class="p-0 m-0">
-          <mat-datepicker-toggle matSuffix [for]="picker" class="p-0 m-0"></mat-datepicker-toggle>
-          <mat-datepicker #picker class="p-0 m-0"></mat-datepicker>
-        </mat-form-field>
-      </div>
+  <!-- <form (ngSubmit)="create()"> -->
+  <div class="row">
+    <div class="col-lg-2">
+      <input type="text" id="codigoMatricula" placeholder="Codigo Matricula" [(ngModel)]="codigoMatricula" name="id"
+        required>
+      <!-- <p>{{ titular.id }}</p> -->
     </div>
+    <div class="col-lg-2">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Fecha de Matricula">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <!-- ----------------------------------------------------------------------- -->
+  <!-- -----------------------------Titular------------------------------- -->
+  <!-- ----------------------------------------------------------------------- -->
+  <form (ngSubmit)="createTitular()">
     <div class="row">
       <div class="col-lg-12">
         <div class="card rounded-0">
@@ -39,14 +40,14 @@
               </div>
               <div class="row">
                 <!-- <div class="col-md-3 pr-0">
-                <input type="text" placeholder="Fecha de Nacimiento" required>
-              </div>
-              <div class="col-md-3">
-                <input type="text" placeholder="Estado Civil" required>
-              </div> -->
+                      <input type="text" placeholder="Fecha de Nacimiento" required>
+                    </div>
+                    <div class="col-md-3">
+                      <input type="text" placeholder="Estado Civil" required>
+                    </div> -->
                 <!-- <div class="col-md-3 pr-0">
-                <input type="text" placeholder="Profesion" required>
-              </div> -->
+                      <input type="text" placeholder="Profesion" required>
+                    </div> -->
                 <div class="col-md-6">
                   <input type="text" placeholder="Cedula de Identidad" [(ngModel)]="clienteTitularDTO.cedula"
                     name="cedula" required>
@@ -82,9 +83,9 @@
                           </div>
                         </div>
                         <!-- <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                              <label class="custom-control-label" for="defaultUnchecked">Hogar</label>
-                      </div> -->
+                                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+                                    <label class="custom-control-label" for="defaultUnchecked">Hogar</label>
+                            </div> -->
                       </div>
                       <div class="container">
                         <div class="row">
@@ -106,29 +107,35 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-between">
               <!-- <div class="col-sm-2 pr-1">
-              <input type="text" placeholder="Fecha de Ingreso" required>
-            </div>
-            <div class="col-sm-2 pl-0 pr-1">
-              <input type="text" placeholder="Cargo" required>
-            </div> -->
+                    <input type="text" placeholder="Fecha de Ingreso" required>
+                  </div>
+                  <div class="col-sm-2 pl-0 pr-1">
+                    <input type="text" placeholder="Cargo" required>
+                  </div> -->
               <div class="col-sm-2 pl-3">
                 <input type="text" placeholder="Ingreso Mensual" [(ngModel)]="titular.salario" name="salario" required>
                 <p>{{ titular.salario }}</p>
               </div>
-              <div class="col-sm-4">
+              <div class="col-sm-2">
                 <!-- <input type="email" placeholder="Email" required> -->
+              </div>
+              <div class="col-sm-2">
+                <div class="d-flex justify-content-end">
+                  <button class="btn btn-primary rounded-0" type="submit">Registrar Titular</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- ----------------------------------------------------------------------- -->
-    <!-- -----------------------------Referencias------------------------------- -->
-    <!-- ----------------------------------------------------------------------- -->
-    <!-- <div class="row">
+  </form>
+  <!-- ----------------------------------------------------------------------- -->
+  <!-- -----------------------------Referencias------------------------------- -->
+  <!-- ----------------------------------------------------------------------- -->
+  <!-- <div class="row">
     <div class="col-lg-12">
       <div class="card my-1 rounded-0">
         <div class="card-header text-center text-white p-1 bg-primary rounded-0">Referencias</div>
@@ -165,54 +172,10 @@
       </div>
     </div>
   </div> -->
-    <!-- ----------------------------------------------------------------------- -->
-    <!-- ----------------------Condiciones Economicas--------------------------- -->
-    <!-- ----------------------------------------------------------------------- -->
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card my-1 rounded-0">
-          <div class="card-header text-center text-white p-1 bg-primary rounded-0">Condiciones Economicas</div>
-          <div class="card-body d-flex flex-row justify-content-around" style="padding: 2px 0px;">
-            <!-- Plan -->
-            <div class="card rounded-0 m-0 p-0 mr-2 d-flex flex-row">
-              <div class="card-header text-center py-1 bg-danger text-white rounded-0">
-                Meses
-              </div>
-              <div class="card-body justify-content-center p-0">
-                <select style="width: 100%; border-radius: 0px;" class="btn btn-light" [(ngModel)]="selectedPlan"
-                  name="plan" (change)="selected()">
-                  <option *ngFor="let item of planes" [ngValue]="item.cantidadMeses">{{item.cantidadMeses}}</option>
-                </select>
-              </div>
-            </div>
-            <input type="text" placeholder="Valor total" style="width: 100px" [(ngModel)]="planSeleccionado.valorTotal"
-              name="total" value="{{planSeleccionado.valorTotal}}">
-            <input type="text" placeholder="Abono" style="width: 80px">
-            <input type="text" placeholder="Inscripcion" style="width: 100px" [(ngModel)]="planSeleccionado.inscripcion"
-              name="inscripcion" value="{{planSeleccionado.inscripcion}}">
-            <input type="text" placeholder="Costo mensual" style="width: 120px"
-              [(ngModel)]="planSeleccionado.costoMensual" value="{{planSeleccionado.costoMensual}}" name="mensualidad">
-            <input type="text" placeholder="Valor restante" style="width: 100px"
-              value="{{planSeleccionado.valorTotal - planSeleccionado.inscripcion}}">
-            <!-- Forma de Pago -->
-            <div class="card rounded-0 m-0 p-0 mr-2 d-flex flex-row" style="width: 30%;">
-              <div class="card-header text-center py-1 bg-danger text-white rounded-0">
-                Forma/Pago
-              </div>
-              <div class="card-body justify-content-center p-0">
-                <select style="width: 100%; border-radius: 0px;" class="btn btn-light" [(ngModel)]="selectedForma"
-                  name="forma" (change)="selectedFormaPago()">
-                  <option *ngFor="let item of formas" [ngValue]="item.descripcion">{{item.descripcion}}</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- ----------------------------------------------------------------------- -->
-    <!-- ---------------------------------Usuario------------------------------- -->
-    <!-- ----------------------------------------------------------------------- -->
+  <!-- ----------------------------------------------------------------------- -->
+  <!-- ---------------------------------Usuario------------------------------- -->
+  <!-- ----------------------------------------------------------------------- -->
+  <form (ngSubmit)="createAlumno()">
     <div class="row">
       <div class="col-lg-12">
         <div class="card my-1 rounded-0">
@@ -220,15 +183,14 @@
           <div class="card-body p-1">
             <div class="row">
               <div class="col-lg-3">
-                <input type="text" placeholder="Nombres" [(ngModel)]="personaAlumno.nombre" name="nombre"
-                  required>
+                <input type="text" placeholder="Nombres" [(ngModel)]="personaAlumno.nombre" name="nombre" required>
                 <!-- <p>{{ personaAlumno.nombre }}</p> -->
               </div>
               <div class="col-lg-3">
-                  <input type="text" placeholder="Apellidos" [(ngModel)]="personaAlumno.apellido" name="apellido"
-                    required>
-                  <!-- <p>{{ personaAlumno.apellido }}</p> -->
-                </div>
+                <input type="text" placeholder="Apellidos" [(ngModel)]="personaAlumno.apellido" name="apellido"
+                  required>
+                <!-- <p>{{ personaAlumno.apellido }}</p> -->
+              </div>
               <div class="col-lg-3">
                 <input type="text" placeholder="Direccion" [(ngModel)]="clienteAlumnoDTO.direccion" name="direccion">
                 <!-- <p>{{ clienteAlumnoDTO.direccion }}</p> -->
@@ -246,8 +208,8 @@
                 <!-- <p>{{ clienteAlumnoDTO.cedula }}</p> -->
               </div>
               <!-- <div class="col-lg-4">
-                <input type="text" placeholder="Fecha de Nacimiento" required>
-            </div> -->
+                      <input type="text" placeholder="Fecha de Nacimiento" required>
+                  </div> -->
               <div class="col-lg-6">
                 <input type="email" placeholder="Email" [(ngModel)]="correoAlumno.correo" name="correo" required>
                 <!-- <p>{{ correoAlumno.correo }}</p> -->
@@ -256,7 +218,93 @@
             <div class="row my-1">
               <div class="col-lg-12">
                 <div class="d-flex justify-content-end">
-                  <button class="btn btn-primary rounded-0" type="submit">Guardar</button>
+                  <button class="btn btn-primary rounded-0 mr-1" type="submit">Registrar Alumno</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!-- </form> -->
+  <form (ngSubmit)="create()">
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- ----------------------Condiciones Economicas--------------------------- -->
+    <!-- ----------------------------------------------------------------------- -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card my-1 rounded-0">
+          <!-- <div class="card-header text-center text-white p-1 bg-primary rounded-0">Condiciones Economicas</div> -->
+          <div class="card-body d-flex flex-column justify-content-around" style="padding: 2px 0px;">
+            <!-- Plan -->
+            <div class="row m-2 justify-content-between">
+              <div class="card rounded-0 mr-2 d-flex flex-row">
+                <div class="card-header text-center py-1 bg-danger text-white rounded-0">
+                  Meses
+                </div>
+                <div class="card-body justify-content-center p-0">
+                  <select style="width: 100%; border-radius: 0px;" class="btn btn-light" [(ngModel)]="selectedPlan"
+                    name="plan" (change)="selected()">
+                    <option *ngFor="let item of planes" [ngValue]="item.cantidadMeses">{{item.cantidadMeses}}</option>
+                  </select>
+                </div>
+              </div>
+              <input type="text" placeholder="Valor total" style="width: 100px"
+                [(ngModel)]="planSeleccionado.valorTotal" name="total" value="{{planSeleccionado.valorTotal}}">
+              <input type="text" placeholder="Abono" style="width: 80px">
+              <input type="text" placeholder="Inscripcion" style="width: 100px"
+                [(ngModel)]="planSeleccionado.inscripcion" name="inscripcion" value="{{planSeleccionado.inscripcion}}">
+              <input type="text" placeholder="Costo mensual" style="width: 120px"
+                [(ngModel)]="planSeleccionado.costoMensual" value="{{planSeleccionado.costoMensual}}"
+                name="mensualidad">
+              <input type="text" placeholder="Valor restante" style="width: 100px"
+                value="{{planSeleccionado.valorTotal - planSeleccionado.inscripcion}}">
+              <!-- Forma de Pago -->
+              <div class="card rounded-0 m-0 p-0 mr-2 d-flex flex-row" style="width: 30%;">
+                <div class="card-header text-center py-1 bg-danger text-white rounded-0">
+                  Forma/Pago
+                </div>
+                <div class="card-body justify-content-center p-0">
+                  <select style="width: 100%; border-radius: 0px;" class="btn btn-light" [(ngModel)]="selectedForma"
+                    name="forma" (change)="selectedFormaPago()">
+                    <option *ngFor="let item of formas" [ngValue]="item.descripcion">{{item.descripcion}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row my-1 justify-content-between">  
+              <div class="col-lg-3">
+                    <div class="card rounded-0 m-0 p-0 mr-2 d-flex flex-row">
+                        <div class="card-header text-center py-1 bg-danger text-white rounded-0">
+                          Asesor
+                        </div>
+                        <div class="card-body justify-content-center p-0">
+                          <select style="width: 100%; border-radius: 0px;" class="btn btn-light" [(ngModel)]="selectedAsesor"
+                            name="forma" (change)="selectedAsesores()">
+                            <option *ngFor="let item of asesores" [ngValue]="item.descripcion">{{item.descripcion}}</option>
+                          </select>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card rounded-0 m-0 p-0 mr-2 d-flex flex-row">
+                        <div class="card-header text-center py-1 bg-danger text-white rounded-0">
+                          Estrategia
+                        </div>
+                        <div class="card-body justify-content-center p-0">
+                          <select style="width: 100%; border-radius: 0px;" class="btn btn-light" [(ngModel)]="selectedEstrategia"
+                            name="forma" (change)="selectedEstrategias()">
+                            <option *ngFor="let item of estrategias" [ngValue]="item.descripcion">{{item.descripcion}}</option>
+                          </select>
+                        </div>
+                      </div>
+                </div>
+              <div class="col-lg-6">
+                <div class="d-flex mr">
+                  <button class="btn btn-primary rounded-0 mr-2" type="submit">Registrar
+                    Matricula</button>
                 </div>
               </div>
             </div>

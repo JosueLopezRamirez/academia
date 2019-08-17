@@ -11,6 +11,7 @@ import { ClienteDTO } from '../model/DTO/ClienteDTO';
 export class ClienteService {
   
   private urlEndPoint: string = 'http://localhost:8080/excellence/api/clientes';
+  // private urlEndPoint: string = 'http://localhost:8081/api/clientes';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 

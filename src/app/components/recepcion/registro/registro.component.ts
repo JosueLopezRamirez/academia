@@ -17,6 +17,10 @@ import Swal from 'sweetalert2';
 import { TitularService } from 'src/app/services/titular.service';
 import { AlumnoService } from 'src/app/services/alumno.service';
 import { TitularDTO } from 'src/app/model/DTO/TitularDTO';
+import { ContratoService } from 'src/app/services/contrato.service';
+import { ContratoDTO } from 'src/app/model/DTO/ContratoDTO';
+import { EstrategiaService } from 'src/app/services/estrategia.service';
+import { Estrategia } from 'src/app/model/Estrategia';
 
 @Component({
   selector: 'app-registro',
@@ -26,12 +30,15 @@ import { TitularDTO } from 'src/app/model/DTO/TitularDTO';
 export class RegistroComponent implements OnInit {
 
   // Variables que serviran para obtener el objeto seleccionado de los combobox
-  selectedPlan:Number;
-  selectedForma:string;
-
+  selectedPlan: Number;
+  selectedForma: string;
+  selectedEstrategia: string;
+  codigoMatricula:string;
+  contrato: ContratoDTO = new ContratoDTO();
   // Arreglos que se llenaran con la respuesta de la API
   planes: Plan[];
   formas: Forma[];
+  estrategias: Estrategia[];
 
   // Definiendo objetos de tablas con atributos unicos
   private personaTitular: Persona = new Persona();
@@ -48,12 +55,12 @@ export class RegistroComponent implements OnInit {
   private correoAlumno: Correo = new Correo();
   // Definiendo objetos de tablas catalogos
   private planSeleccionado: Plan = new Plan();
-  
+
   // Instanciar servicios a utilizar
 
-  constructor(private personaService: PersonaService,private clienteService: ClienteService,
-    private titularService: TitularService,private alumnoService: AlumnoService,private planService: PlanService,
-    private formaService: FormaService, private router: Router){ }
+  constructor(private personaService: PersonaService, private clienteService: ClienteService,
+    private titularService: TitularService, private alumnoService: AlumnoService, private contratoService: ContratoService, private planService: PlanService,
+    private formaService: FormaService,private estrategiaService: EstrategiaService, private router: Router) { }
 
   ngOnInit() {
     // Llenar el combobox del select de meses
@@ -65,76 +72,106 @@ export class RegistroComponent implements OnInit {
     this.formaService.getForma().subscribe(
       forma => this.formas = forma
     );
+
+    this.estrategiaService.getEstrategia().subscribe(
+      estrategia => this.estrategias = estrategia
+    );
   }
 
   // Metodos que se llaman desde los dos combobox
   // -------------------------------------------------------------------------------
-  selected(){
-    for(let i = 0; i < this.planes.length; i++){
-      if(this.planes[i].cantidadMeses == this.selectedPlan){
+  selected() {
+    for (let i = 0; i < this.planes.length; i++) {
+      if (this.planes[i].cantidadMeses == this.selectedPlan) {
         this.planSeleccionado.valorTotal = this.planes[i].valorTotal;
         this.planSeleccionado.inscripcion = this.planes[i].inscripcion;
         this.planSeleccionado.costoMensual = this.planes[i].costoMensual;
+        // ---------------------------------------------
+        this.contrato.plan_id = this.planes[i].id;
+        console.log(this.contrato)
       }
     }
   }
-  
-  selectedFormaPago(){
-    for(let i = 0; i < this.formas.length; i++){
-      if(this.formas[i].descripcion == this.selectedForma){
-        console.log(this.formas[i]);
+
+  selectedFormaPago() {
+    for (let i = 0; i < this.formas.length; i++) {
+      if (this.formas[i].descripcion == this.selectedForma) {
+        this.contrato.forma_id = this.formas[i].id;
       }
     }
+    console.log(this.contrato)
+  }
+
+  selectedEstrategias(): void {
+    this.estrategias.forEach(item => {
+      if(item.descripcion == this.selectedEstrategia){
+        this.contrato.estrategia_id = item.id;
+      }
+    })
+    console.log(this.contrato)
   }
   // -------------------------------------------------------------------------------
   // Metodo para registrar una nueva matricula
-  public create(): void{
-      // Insertando los valores del titular
-      // ----------------------------------------------------------------------
-      // this.personaService.create(this.personaTitular)
-      //   .subscribe(persona => {
-      //   this.clienteTitularDTO.persona_id = persona.id;
-      //   // Ligando dicha persona como un cliente
-      //   this.clienteService.create(this.clienteTitularDTO)
-      //     .subscribe(cliente => {
-      //       // Ligando al titular con el cliente
-      //       this.titularService.create(this.titular,cliente.id)
-      //         .subscribe(titular => {
-      //           console.log(titular);
-      //           Swal.fire('Nuevo Titular Registrado', `Titular ${persona.nombre} registrado con exito!`, 'success');
-      //         })
-      //     });
-      // })
-      // ----------------------------------------------------------------------
-      // Insertando los valores del alumno
-      // ----------------------------------------------------------------------
-      // console.log(this.personaAlumno)
-      this.personaService.create(this.personaAlumno)
-        .subscribe(persona => {
-          console.log(persona);
-        this.clienteAlumnoDTO.persona_id = persona.id;
+  public createTitular(): void {
+    // ----------------------------------------------------------------------
+    // Insertando los valores del titular
+    // ----------------------------------------------------------------------
+    this.personaService.create(this.personaTitular)
+      .subscribe(persona => {
+        this.clienteTitularDTO.persona_id = persona.id;
         // Ligando dicha persona como un cliente
-        console.log(this.clienteAlumnoDTO)
+        this.clienteService.create(this.clienteTitularDTO)
+          .subscribe(cliente => {
+            // Ligando al titular con el cliente
+            this.titular.id = this.codigoMatricula;
+            this.titularService.create(this.titular, cliente.id)
+              .subscribe(titular => {
+                console.log(titular)
+                Swal.fire(`Titular Registrado`, `Titular ${persona.nombre} registrada con éxito!`, 'success');
+              })
+          });
+      })
+  }
+
+  public createAlumno(): void {
+    // ----------------------------------------------------------------------
+    // Insertando los valores del alumno
+    // ----------------------------------------------------------------------    
+    this.personaService.create(this.personaAlumno)
+      .subscribe(persona => {
+        // Ligando dicha persona como un cliente
+        this.clienteAlumnoDTO.persona_id = persona.id;
         this.clienteService.create(this.clienteAlumnoDTO)
           .subscribe(cliente => {
-            // this.alumno.cliente_id = cliente.id
             // Ligando al titular con el cliente
-            this.alumno.id = this.titular.id
+            this.alumno.id = this.codigoMatricula;
             this.alumno.nivel = 1;
             this.alumno.activo = true;
             console.log(this.alumno)
-            this.alumnoService.create(this.alumno,cliente.id)
+            this.alumnoService.create(this.alumno, cliente.id)
               .subscribe(alumno => {
-                console.log(alumno);
-                Swal.fire('Nuevo Alumno Registrado', `Alumno ${persona.nombre} registrado con exito!`, 'success');
+                console.log(alumno)
+                Swal.fire(`Alumno Registrado`, `Alumno ${persona.nombre} registrada con éxito!`, 'success');
               })
           })
       })
-      // ----------------------------------------------------------------------
-    
-      
-    // this.router.navigate(['/registro']);
-    // console.log('Formulario enviado')
-    
+  }
+
+  public create(): void {
+    // ----------------------------------------------------------------------
+    // Insertando los valores en el contrato
+    // ----------------------------------------------------------------------
+    this.contrato.alumno_id = this.codigoMatricula;
+    this.contrato.titular_id = this.codigoMatricula;
+    this.contrato.asesor_id = 1;
+    this.contrato.estrategia_id = 1;
+    this.contrato.fecha_contrato = new Date();
+    console.log(this.contrato)
+    this.contratoService.create(this.contrato)
+      .subscribe(_contrato => {
+        console.log(_contrato);
+        Swal.fire(`Matricula Registrada`, `Matricula registrada con éxito!`, 'success');
+      })
+    this.router.navigate(['/registro']);
   }
 }

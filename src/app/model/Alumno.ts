@@ -1,6 +1,6 @@
 
 export class Alumno{
-    id: String;
+    id: string;
     cliente_id: Number;
     activo: boolean;
     nivel: Number;

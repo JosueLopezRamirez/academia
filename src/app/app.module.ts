@@ -13,7 +13,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { HeaderComponent } from './components/header/header.component';
+// import { HeaderComponent } from './components/header/header.component';
 import { ReservaComponent } from './components/recepcion/reserva/reserva.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { RecordComponent } from './components/recepcion/record/record.component';
@@ -27,12 +27,13 @@ import { PersonaService } from './services/persona.service';
 import { ClienteService } from './services/cliente.service';
 import { TitularService } from './services/titular.service';
 import { AlumnoService } from './services/alumno.service';
+import { ContratoService } from './services/contrato.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HeaderComponent,
+    // HeaderComponent,
     ReservaComponent,
     PanelComponent,
     RecordComponent,
@@ -55,7 +56,8 @@ import { AlumnoService } from './services/alumno.service';
     PersonaService,
     ClienteService,
     TitularService,
-    AlumnoService
+    AlumnoService,
+    ContratoService
   ],
   bootstrap: [AppComponent]
 })
