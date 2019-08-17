@@ -259,7 +259,7 @@
                 [(ngModel)]="planSeleccionado.costoMensual" value="{{planSeleccionado.costoMensual}}"
                 name="mensualidad">
               <input type="text" placeholder="Valor restante" style="width: 100px"
-                value="{{planSeleccionado.valorTotal - planSeleccionado.inscripcion}}">
+                value="{{ valorRestante }}">
               <!-- Forma de Pago -->
               <div class="card rounded-0 m-0 p-0 mr-2 d-flex flex-row" style="width: 30%;">
                 <div class="card-header text-center py-1 bg-danger text-white rounded-0">

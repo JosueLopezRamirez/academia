@@ -30,6 +30,7 @@ import { Estrategia } from 'src/app/model/Estrategia';
 export class RegistroComponent implements OnInit {
 
   // Variables que serviran para obtener el objeto seleccionado de los combobox
+  valorRestante: Number;
   selectedPlan: Number;
   selectedForma: string;
   selectedEstrategia: string;
@@ -86,6 +87,7 @@ export class RegistroComponent implements OnInit {
         this.planSeleccionado.valorTotal = this.planes[i].valorTotal;
         this.planSeleccionado.inscripcion = this.planes[i].inscripcion;
         this.planSeleccionado.costoMensual = this.planes[i].costoMensual;
+        this.valorRestante = this.planSeleccionado.valorTotal.valueOf() - this.planSeleccionado.inscripcion.valueOf();
         // ---------------------------------------------
         this.contrato.plan_id = this.planes[i].id;
         console.log(this.contrato)
