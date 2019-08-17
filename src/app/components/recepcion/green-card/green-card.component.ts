@@ -11,7 +11,7 @@ import { Telefono } from 'src/app/model/Telefono';
 })
 export class GreenCardComponent implements OnInit {
 
-  private alumnoPersona: Persona = new Persona();
+  private alumnoPersona: Persona = new Persona(null,"","");
   private alumnoCliente: Cliente = new Cliente();
   private alumnoTelefono: Telefono = new Telefono();
   private alumno: Alumno = new Alumno();

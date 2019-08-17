@@ -28,6 +28,7 @@ import { ClienteService } from './services/cliente.service';
 import { TitularService } from './services/titular.service';
 import { AlumnoService } from './services/alumno.service';
 import { ContratoService } from './services/contrato.service';
+import { AsesorService } from './services/asesores.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ContratoService } from './services/contrato.service';
     ClienteService,
     TitularService,
     AlumnoService,
-    ContratoService
+    ContratoService,
+    AsesorService
   ],
   bootstrap: [AppComponent]
 })

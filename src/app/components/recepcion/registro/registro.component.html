@@ -283,7 +283,7 @@
                         <div class="card-body justify-content-center p-0">
                           <select style="width: 100%; border-radius: 0px;" class="btn btn-light" [(ngModel)]="selectedAsesor"
                             name="forma" (change)="selectedAsesores()">
-                            <option *ngFor="let item of asesores" [ngValue]="item.descripcion">{{item.descripcion}}</option>
+                            <option *ngFor="let item of asesores" [ngValue]="item.empleado.persona.nombre">{{item.empleado.persona.nombre}}</option>
                           </select>
                         </div>
                       </div>

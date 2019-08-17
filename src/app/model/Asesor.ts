@@ -1,5 +1,9 @@
+import { Grupo } from './Grupo';
+import { Empleado } from './Empleado';
+
 export class Asesor {
     id:Number;
-    empleado_id:Number;
-    grupo_id:Number;
+    empleado:Empleado;
+    grupo:Grupo;
+
 }

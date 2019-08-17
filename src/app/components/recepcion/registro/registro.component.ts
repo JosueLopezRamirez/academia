@@ -21,6 +21,8 @@ import { ContratoService } from 'src/app/services/contrato.service';
 import { ContratoDTO } from 'src/app/model/DTO/ContratoDTO';
 import { EstrategiaService } from 'src/app/services/estrategia.service';
 import { Estrategia } from 'src/app/model/Estrategia';
+import { AsesorService } from 'src/app/services/asesores.service';
+import { Asesor } from 'src/app/model/Asesor';
 
 @Component({
   selector: 'app-registro',
@@ -34,16 +36,18 @@ export class RegistroComponent implements OnInit {
   selectedPlan: Number;
   selectedForma: string;
   selectedEstrategia: string;
+  selectedAsesor: string;
   codigoMatricula:string;
   contrato: ContratoDTO = new ContratoDTO();
   // Arreglos que se llenaran con la respuesta de la API
   planes: Plan[];
   formas: Forma[];
   estrategias: Estrategia[];
-
+  asesores: Asesor[];
+  asesorPersona: Persona[];
   // Definiendo objetos de tablas con atributos unicos
-  private personaTitular: Persona = new Persona();
-  private personaAlumno: Persona = new Persona();
+  private personaTitular: Persona = new Persona(null,"","");
+  private personaAlumno: Persona = new Persona(null,"","");
   private titular: TitularDTO = new TitularDTO();
   private alumno: Alumno = new Alumno();
 
@@ -61,7 +65,7 @@ export class RegistroComponent implements OnInit {
 
   constructor(private personaService: PersonaService, private clienteService: ClienteService,
     private titularService: TitularService, private alumnoService: AlumnoService, private contratoService: ContratoService, private planService: PlanService,
-    private formaService: FormaService,private estrategiaService: EstrategiaService, private router: Router) { }
+    private formaService: FormaService,private estrategiaService: EstrategiaService,private asesorService: AsesorService, private router: Router) { }
 
   ngOnInit() {
     // Llenar el combobox del select de meses
@@ -76,6 +80,13 @@ export class RegistroComponent implements OnInit {
 
     this.estrategiaService.getEstrategia().subscribe(
       estrategia => this.estrategias = estrategia
+    );
+    
+    this.asesorService.getAsesores().subscribe(
+      asesor => { 
+        this.asesores = asesor;
+        // console.log(this.asesores);
+      }
     );
   }
 
@@ -108,6 +119,15 @@ export class RegistroComponent implements OnInit {
     this.estrategias.forEach(item => {
       if(item.descripcion == this.selectedEstrategia){
         this.contrato.estrategia_id = item.id;
+      }
+    })
+    console.log(this.contrato)
+  }
+
+  selectedAsesores(): void {
+    this.asesores.forEach(item => {
+      if(item.empleado.persona.nombre == this.selectedAsesor){
+        this.contrato.asesor_id = item.id;
       }
     })
     console.log(this.contrato)
@@ -165,8 +185,8 @@ export class RegistroComponent implements OnInit {
     // ----------------------------------------------------------------------
     this.contrato.alumno_id = this.codigoMatricula;
     this.contrato.titular_id = this.codigoMatricula;
-    this.contrato.asesor_id = 1;
-    this.contrato.estrategia_id = 1;
+    // this.contrato.asesor_id = 1;
+    // this.contrato.estrategia_id = 1;
     this.contrato.fecha_contrato = new Date();
     console.log(this.contrato)
     this.contratoService.create(this.contrato)
