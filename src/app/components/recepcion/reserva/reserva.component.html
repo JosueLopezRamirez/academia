@@ -1,13 +1,13 @@
 <div style="height: 100vh;">
   <div class="card border-primary mb-3 my-3">
-    <div class="card-header">Listado de Titulares</div>
+    <div class="card-header">Lista de Reservas</div>
     <div class="card-body text-primary">
       <!-- <h5 class="card-title">Listado de Titulares</h5> -->
   
       <table class="table table-bordered table-striped">
         <thead>
             <tr>
-              <th>Id</th>
+              <!-- <th>ID</th> -->
               <th>Fecha</th>
               <th>Hora</th>
               <th>Nivel</th>
@@ -20,7 +20,7 @@
         </thead>
         <tbody>
           <tr style="font-size: 14px;" *ngFor="let item of reservas">
-            <td>{{ item.id }}</td>
+            <!-- <td>{{ item.id }}</td> -->
             <td>{{ item.fecha }}</td>
             <td>{{ item.hora }}</td>
             <td>{{ item.nivel }}</td>
