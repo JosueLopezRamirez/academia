@@ -8,7 +8,7 @@
     </div>
     <div class="col-lg-2">
       <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="Fecha de Matricula">
+        <input matInput [matDatepicker]="picker" [(ngModel)]="contrato.fecha_contrato" name="fecha_contrato" placeholder="Fecha de Matricula">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -276,7 +276,7 @@
             <!--  -->
             <div class="row my-1 justify-content-between">  
               <div class="col-lg-3">
-                    <div class="card rounded-0 m-0 p-0 mr-2 d-flex flex-row">
+                    <div class="card rounded-0 m-0 p-0 ml-2 mr-2 d-flex flex-row">
                         <div class="card-header text-center py-1 bg-danger text-white rounded-0">
                           Asesor
                         </div>

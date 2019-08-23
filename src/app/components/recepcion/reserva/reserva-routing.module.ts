@@ -1,21 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DiaComponent } from './dia/dia.component';
 import { ReservaComponent } from './reserva.component';
+import { FormReservaComponent } from './form-reserva.component';
 
 const routes: Routes = [
-  {path: 'reserva', component: ReservaComponent,
-  children: [
-    // {path:'',redirectTo:'/lunes',pathMatch:'full'},
-    {path:'',component: DiaComponent},
-    {path:'lunes',component: DiaComponent},
-    {path:'martes',component: DiaComponent},
-    {path:'miercoles',component: DiaComponent},
-    {path:'jueves',component: DiaComponent},
-    {path:'viernes',component: DiaComponent},
-    {path:'sabado',component: DiaComponent},
-    
-  ]}
+  {path: 'reserva', component: ReservaComponent}
+  // {path: 'reservas/form/:id', component: FormReservaComponent}
 ];
 
 @NgModule({

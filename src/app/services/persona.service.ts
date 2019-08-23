@@ -34,5 +34,4 @@ export class PersonaService {
   delete(id: number): Observable<Persona>{
     return this.http.delete<Persona>(`${this.urlEndPoint}/${id}`, {headers: this.httpHeaders})
   }
-
 }

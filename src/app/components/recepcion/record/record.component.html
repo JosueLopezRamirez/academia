@@ -52,20 +52,20 @@
         <!-- Position Column -->
         <ng-container matColumnDef="fechaIng">
           <th mat-header-cell class="pr-1" *matHeaderCellDef> Fecha/Ing </th>
-          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.fechaIng}} </td>
+          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.fecha}} </td>
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="no">
+        <!-- <ng-container matColumnDef="no">
           <th mat-header-cell class="pr-1" *matHeaderCellDef> No </th>
           <td mat-cell class="pr-1" *matCellDef="let element"> {{element.no}} </td>
-        </ng-container>
+        </ng-container> -->
 
         <!-- Weight Column -->
-        <ng-container matColumnDef="telefono">
+        <!-- <ng-container matColumnDef="telefono">
           <th mat-header-cell class="pr-1" *matHeaderCellDef> Tel </th>
           <td mat-cell class="pr-1" *matCellDef="let element"> {{element.telefono}} </td>
-        </ng-container>
+        </ng-container> -->
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="titular">
@@ -75,7 +75,7 @@
 
         <ng-container matColumnDef="NoMat">
           <th mat-header-cell class="pr-1" *matHeaderCellDef> NoMat </th>
-          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.NoMat}} </td>
+          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.titular_id}} </td>
         </ng-container>
 
         <ng-container matColumnDef="inscripcion">
@@ -90,7 +90,7 @@
 
         <ng-container matColumnDef="valorMes">
           <th mat-header-cell class="pr-1" *matHeaderCellDef> Mes </th>
-          <td mat-cell class="pr-2" *matCellDef="let element"> {{element.valorMes}} </td>
+          <td mat-cell class="pr-2" *matCellDef="let element"> {{element.mensualidad}} </td>
         </ng-container>
 
         <ng-container matColumnDef="valorTotal">
@@ -100,7 +100,7 @@
 
         <ng-container matColumnDef="ejecutivo">
           <th mat-header-cell *matHeaderCellDef> Ejec. </th>
-          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.ejecutivo}} </td>
+          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.asesor}} </td>
         </ng-container>
 
         <ng-container matColumnDef="estrategia">
@@ -110,13 +110,18 @@
 
         <ng-container matColumnDef="formaPago">
           <th mat-header-cell *matHeaderCellDef> FormaPago </th>
-          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.formaPago}} </td>
+          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.forma}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="observacion">
+        <!-- <ng-container matColumnDef="observacion">
           <th mat-header-cell *matHeaderCellDef> Observacion </th>
           <td mat-cell class="pr-1" *matCellDef="let element"> {{element.observacion}} </td>
-        </ng-container>
+        </ng-container> -->
+
+        <!-- <ng-container matColumnDef="botones">
+          <th mat-header-cell *matHeaderCellDef> Botones </th>
+          <td mat-cell class="pr-1" *matCellDef="let element"> {{element.formaPago}} </td>
+        </ng-container> -->
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

@@ -1,0 +1,102 @@
+<div class="card bg-dark text-white rounded-0" style="height: 55vh;">
+    <div class="card-header">Datos del Alumno</div>
+    <div class="card-body">
+  
+      <form>
+        <div class="form-group row">
+          <label for="nombre" class="col-form-label col-sm-2">Codigo Alumno</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="alumno.id" name="id">
+          </div>
+          
+          <label for="nombre" class="col-form-label col-sm-2">Fecha</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="detalle.fecha" name="fecha">
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="apellido" class="col-form-label col-sm-2">Hora</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="detalle.hora" name="hora">
+          </div>
+          
+          <label for="nombre" class="col-form-label col-sm-2">Nivel</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="detalle.nivel" name="nivel">
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="correo" class="col-form-label col-sm-2">Unidad</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="detalle.unidad" name="unidad">
+          </div>
+          
+          <label for="nombre" class="col-form-label col-sm-2">Tutoria</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="detalle.tutoria" name="tutoria">
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="telefono" class="col-form-label col-sm-2">Tutor</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="detalle.tutor" name="tutor">
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <div class="col-sm-4">
+            <button class="btn btn-primary" role="button" (click)='create()'
+              *ngIf="!detalle.id else elseBlock">Crear</button>
+  
+            <ng-template #elseBlock>
+              <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
+            </ng-template>
+          </div>
+        </div></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="card bg-dark text-white rounded-0" style="height: 45vh;">
+    <div class="card-header">Listado de Titulares</div>
+    <div class="card-body text-primary">
+      <!-- <h5 class="card-title">Listado de Titulares</h5> -->
+  
+      <table class="table table-bordered table-striped">
+        <thead>
+            <tr class="text-white">
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Salario</th>
+              <th>Labora</th>
+              <th>Telefono</th>
+              <th>Telefono Lab.</th>
+              <th>Correo Personal</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr style="font-size: 14px;" *ngFor="let titular of titulares">
+            <td>{{ titular.titular_id }}</td>
+            <td>{{ titular.nombre }}</td>
+            <td>{{ titular.salario }}</td>
+            <td>{{ titular.nombreTrabajo }}</td>
+            <td>{{ titular.telefonoPersonal }}</td>
+            <td>{{ titular.telefonoTrabajo }}</td>
+            <td>{{ titular.correoPersonal }}</td>
+            <td>
+              <button type="button" name="edit" class="btn btn-primary btn-sm" [routerLink]="['/titulares/form',titular.titular_id]" routerLinkActive="router-link-active" >Editar</button>
+            </td>
+            <td>
+              <button type="button" name="delete" (click)='delete(titular)' class="ml-1 btn btn-danger btn-sm">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+

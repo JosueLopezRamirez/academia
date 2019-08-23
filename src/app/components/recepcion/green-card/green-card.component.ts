@@ -4,6 +4,7 @@ import { Historial } from '../../../model/Historial';
 import { Persona } from 'src/app/model/Persona';
 import { Cliente } from '../../../model/Cliente';
 import { Telefono } from 'src/app/model/Telefono';
+import { Correo } from 'src/app/model/Correo';
 
 @Component({
   selector: 'app-green-card',
@@ -11,13 +12,16 @@ import { Telefono } from 'src/app/model/Telefono';
 })
 export class GreenCardComponent implements OnInit {
 
+  nombreBuscar:string;
   private alumnoPersona: Persona = new Persona(null,"","");
   private alumnoCliente: Cliente = new Cliente();
   private alumnoTelefono: Telefono = new Telefono();
+  private alumnoCorreo: Correo = new Correo();
   private alumno: Alumno = new Alumno();
   private value: boolean = false;
-  constructor() { }
-  //this.historial.push();
+  constructor() { 
+    this.alumnoPersona.nombre = null;
+  }
   ngOnInit() {
   }
 

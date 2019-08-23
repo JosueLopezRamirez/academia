@@ -1,15 +1,16 @@
 export class RecordProduccion {
-  fechaIng: String;
-  no: Number;
-  telefono: string;
+  fecha: Date;
+  // no: Number;
+  // telefono: string;
   titular: String;
-  NoMat: String;
+  titular_id: String;
   inscripcion: Number;
   plan: Number;
-  valorMes: Number;
+  mensualidad: Number;
   valorTotal: Number;
-  ejecutivo: string;
   estrategia: string;
-  formaPago: string;
-  observacion: string;
+  forma: string;
+  alumno: string;
+  organizacion: string;
+  asesor: string;
 }

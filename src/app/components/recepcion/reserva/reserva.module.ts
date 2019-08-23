@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
 
 import { ReservaRoutingModule } from './reserva-routing.module';
-import { DiaComponent } from './dia/dia.component';
-import { HoraReservaComponent } from './hora-reserva/hora-reserva.component';
+import { FormReservaComponent } from './form-reserva.component';
 
 @NgModule({
   declarations: [
-    DiaComponent,
-    HoraReservaComponent
+    // FormReservaComponent
   ],
   imports: [
     CommonModule,
-    ReservaRoutingModule
+    ReservaRoutingModule,
+    FormsModule,ReactiveFormsModule
   ]
 })
 export class ReservaModule { }

@@ -90,6 +90,7 @@ export class RegistroComponent implements OnInit {
     );
   }
 
+  // -------------------------------------------------------------------------------
   // Metodos que se llaman desde los dos combobox
   // -------------------------------------------------------------------------------
   selected() {
@@ -185,15 +186,13 @@ export class RegistroComponent implements OnInit {
     // ----------------------------------------------------------------------
     this.contrato.alumno_id = this.codigoMatricula;
     this.contrato.titular_id = this.codigoMatricula;
-    // this.contrato.asesor_id = 1;
-    // this.contrato.estrategia_id = 1;
-    this.contrato.fecha_contrato = new Date();
+    //this.contrato.fecha_contrato = new Date();
     console.log(this.contrato)
     this.contratoService.create(this.contrato)
       .subscribe(_contrato => {
         console.log(_contrato);
         Swal.fire(`Matricula Registrada`, `Matricula registrada con éxito!`, 'success');
+        this.router.navigate(['/record']);
       })
-    this.router.navigate(['/registro']);
   }
 }

@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { Contrato } from '../model/Contrato';
 import { ContratoDTO } from '../model/DTO/ContratoDTO';
 import { ContratoId } from '../model/composite/ContratoId';
+import { RecordProduccion } from '../model/RecordProduccion';
 
 @Injectable({
     providedIn: 'root'
@@ -24,6 +25,12 @@ export class ContratoService {
     getContratos(): Observable<Contrato[]> {
         return this.http.get(this.urlEndPoint).pipe(
         map(response => response as Contrato[])
+        );
+    }
+
+    getRecord(): Observable<RecordProduccion[]>{
+        return this.http.get(`${this.urlEndPoint}-record`).pipe(
+            map(response => response as RecordProduccion[])
         );
     }
     

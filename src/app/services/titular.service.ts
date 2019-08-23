@@ -4,6 +4,7 @@ import { Titular } from '../model/Titular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { TitularDTO } from '../model/DTO/TitularDTO';
+import { TitularDatos } from '../model/Petitions/TitularDatos';
 
 @Injectable({
   providedIn: 'root'
@@ -31,11 +32,15 @@ export class TitularService {
     return this.http.get<Titular>(`${this.urlEndPoint}/${id}`)
   }
 
+  getTitularInfo(): Observable<TitularDatos[]>{
+    return this.http.get<TitularDatos[]>(`${this.urlEndPoint}-datos`)
+  }
+
   update(titular: Titular): Observable<Titular>{
     return this.http.put<Titular>(`${this.urlEndPoint}/${titular.id}`, titular, {headers: this.httpHeaders})
   }
   
-  delete(id: number): Observable<Titular>{
+  delete(id: string): Observable<Titular>{
     return this.http.delete<Titular>(`${this.urlEndPoint}/${id}`, {headers: this.httpHeaders})
   }
 }

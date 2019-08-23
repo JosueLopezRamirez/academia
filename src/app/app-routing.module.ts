@@ -5,7 +5,6 @@ import { RecordComponent } from './components/recepcion/record/record.component'
 import { GreenCardComponent } from './components/recepcion/green-card/green-card.component';
 import { EstadoCuentaComponent } from './components/administracion/estado-cuenta/estado-cuenta.component';
 import { ReportesComponent } from './components/administracion/reportes/reportes.component';
-import { FormRegistroReservaComponent } from './components/recepcion/form-registro-reserva/form-registro-reserva.component';
 
 const routes: Routes = [
   {path:'', component: RegistroComponent, pathMatch: 'full'},
@@ -13,8 +12,7 @@ const routes: Routes = [
   {path:'record', component: RecordComponent},
   {path:'historial', component: GreenCardComponent},
   {path:'estado-cuenta', component: EstadoCuentaComponent},
-  {path:'reportes', component: ReportesComponent},
-  {path:'reserva/form', component: FormRegistroReservaComponent}
+  {path:'reportes', component: ReportesComponent}
 
 ];
 
