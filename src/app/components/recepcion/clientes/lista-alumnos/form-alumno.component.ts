@@ -39,7 +39,7 @@ export class FormAlumnoComponent implements OnInit {
         this.alumnoService.getAlumno(alumno_id).subscribe((alumno) => {
           this.alumno = alumno
           // console.log(alumno.cliente.id)
-          // cliente_id = alumno.cliente.id;
+          cliente_id = alumno.cliente.id;
           this.clienteService.getCliente(cliente_id).subscribe( cliente => {
             this.clienteAlumnoDTO.id = cliente.id
             this.clienteAlumnoDTO.cedula = cliente.cedula

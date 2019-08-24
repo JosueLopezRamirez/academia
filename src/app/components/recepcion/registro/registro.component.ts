@@ -187,7 +187,8 @@ export class RegistroComponent implements OnInit {
     this.contrato.alumno_id = this.codigoMatricula;
     this.contrato.titular_id = this.codigoMatricula;
     //this.contrato.fecha_contrato = new Date();
-    console.log(this.contrato)
+    // console.log(this.contrato.fecha_contrato)
+    console.log(this.contrato.fecha_contrato.toISOString)
     this.contratoService.create(this.contrato)
       .subscribe(_contrato => {
         console.log(_contrato);
