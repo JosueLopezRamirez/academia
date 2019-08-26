@@ -1,5 +1,5 @@
 export class RecordProduccion {
-  fecha: Date;
+  fecha: string;
   // no: Number;
   // telefono: string;
   titular: String;

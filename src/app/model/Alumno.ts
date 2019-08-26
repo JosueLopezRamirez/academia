@@ -1,7 +1,8 @@
+import { Cliente } from './Cliente';
 
 export class Alumno{
     id: string;
-    cliente_id: Number;
+    cliente: Cliente;
     activo: boolean;
     nivel: Number;
 }

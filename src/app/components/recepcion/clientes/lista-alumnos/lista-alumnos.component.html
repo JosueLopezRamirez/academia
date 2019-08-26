@@ -1,12 +1,12 @@
-<div class="card border-primary mb-3 my-3">
+<div class="card mb-3 my-3">
     <div class="card-header">Listado de Alumnos</div>
     <div class="card-body text-primary">
       <!-- <h5 class="card-title">Listado de Titulares</h5> -->
   
       <table class="table table-bordered table-striped">
         <thead>
-            <tr>
-              <th>Id</th>
+            <tr class="text-center" style="font-size: 13px;">
+              <th>Co. Matricula</th>
               <th>Nombre</th>
               <th>Nivel Actual</th>
               <th>Activo</th>
@@ -16,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-          <tr style="font-size: 14px;" *ngFor="let alumno of alumnos">
+          <tr class="text-justify" style="font-size: 13px;" *ngFor="let alumno of alumnos">
             <td>{{ alumno.alumno_id }}</td>
             <td>{{ alumno.nombre }}</td>
             <td>{{ alumno.nivel }}</td>

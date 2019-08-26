@@ -1,14 +1,14 @@
 export class DetalleTutoriaDatos {
     
     id:Number;
-    fecha: Date;
+    fecha: string;
     hora:Date;
     nivel_id:string;
     unidad_id:string;
     tutoria_id:string;
     tutor_id:string;
 
-    constructor(id:Number,fecha:Date,hora:Date, nivel_id:string,unidad_id:string,tutoria_id:string,tutor_id:string){
+    constructor(id:Number,fecha:string,hora:Date, nivel_id:string,unidad_id:string,tutoria_id:string,tutor_id:string){
         this.id = id;
         this.fecha= fecha;
         this.hora = hora;

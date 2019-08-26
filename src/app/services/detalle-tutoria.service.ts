@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
+import {DatePipe} from '@angular/common';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Alumno } from '../model/Alumno';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AlumnoDatos } from '../model/Petitions/AlumnoDatos';
 import { DetalleTutoriaDatos } from '../model/Petitions/DetalleTutoriaDatos';
 import { DetalleTutoriaDTO } from '../model/DTO/DetalleTutoriaDTO';
 
@@ -21,7 +20,15 @@ export class DetalleTutoriaService {
 
   getDetalleTutorias(): Observable<DetalleTutoriaDatos[]> {
     return this.http.get(`${this.urlEndPoint}-datos`).pipe(
-      map(response => response as DetalleTutoriaDatos[])
+      map(response => {
+        let detalles = response as DetalleTutoriaDatos[];
+        return detalles.map(detalle => {
+          //Usando datePipe para formatear las fechas
+          let datePite = new DatePipe('es-NI');
+          detalle.fecha = datePite.transform(detalle.fecha,'EEEE dd, MMMM yyyy');
+          return detalle;
+        });
+      })
     );
   }
   

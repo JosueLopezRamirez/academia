@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import localeES from '@angular/common/locales/es-NI';
 
 //Modulos
 import { MaterialModule } from './material/material.module';
@@ -13,7 +15,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-// import { HeaderComponent } from './components/header/header.component';
 import { ReservaComponent } from './components/recepcion/reserva/reserva.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { RecordComponent } from './components/recepcion/record/record.component';
@@ -30,11 +31,12 @@ import { ContratoService } from './services/contrato.service';
 import { AsesorService } from './services/asesores.service';
 import { ClientesModule } from './components/recepcion/clientes/clientes.module';
 
+registerLocaleData(localeES,'es-NI');
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    // HeaderComponent,
     ReservaComponent,
     PanelComponent,
     RecordComponent,

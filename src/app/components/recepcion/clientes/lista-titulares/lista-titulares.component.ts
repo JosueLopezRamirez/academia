@@ -24,8 +24,8 @@ export class ListaTitularesComponent implements OnInit {
   delete(titular: TitularDatos): void{
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
+        confirmButton: 'btn btn-success m-1',
+        cancelButton: 'btn btn-danger m-1'
       },
       buttonsStyling: false
     })
@@ -39,16 +39,21 @@ export class ListaTitularesComponent implements OnInit {
       cancelButtonText: 'No, cancelar!',
       reverseButtons: true
     }).then((result) => {
+      //codigo que se ejecutara si fue presionado el boton de eliminar del swal
       if (result.value) {
-        this.titularService.delete(titular.titular_id).subscribe(
-          response => {
-            this.titulares = this.titulares.filter(cli => cli !== titular)
-            swalWithBootstrapButtons.fire(
-              'Titular Eliminado!',
-              'El titular a sido borrado con exito!!',
-              'success'
-            )
-          }
+        swalWithBootstrapButtons.fire(
+          'Titular Dado de Baja!',
+          'El titular a sido dado de baja con exito!!',
+          'success'
+        )
+      } else if (
+        //codigo en caso de que desee cancelar el dar de baja a un titular
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelado',
+          `El titular ${titular.nombre} no fue dado de baja`,
+          'error'
         )
       }
     })

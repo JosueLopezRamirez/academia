@@ -8,7 +8,7 @@ import { FormReservaComponent } from './form-reserva.component';
 
 @NgModule({
   declarations: [
-    // FormReservaComponent
+    FormReservaComponent
   ],
   imports: [
     CommonModule,
