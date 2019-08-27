@@ -7,5 +7,5 @@ export class ContratoDTO {
     estrategia_id:Number;
     forma_id:Number;
     plan_id:Number;
-    fecha_contrato:string;
+    fecha_contrato:Date;
 }

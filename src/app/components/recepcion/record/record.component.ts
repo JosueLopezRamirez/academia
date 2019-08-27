@@ -15,50 +15,22 @@ export class RecordComponent implements OnInit {
   planes: Plan[];
   record: RecordProduccion[];
   dataSource;
-  //Modificar el displayed columns para los nombres de las columnas
-  // ,'no','telefono'
   displayedColumns: string[] = ['fechaIng','titular','NoMat','inscripcion','plan','valorMes','valorTotal','ejecutivo','estrategia','formaPago'];
-  // dataSource = new MatTableDataSource<RecordProduccion>(this.record);
   
   @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
 
   constructor(private planService: PlanService,private contratoService: ContratoService) { }
   
   ngOnInit() {
-    this.planService.getPlan().subscribe(
-      //Asignando el stream de clientes de la clase @clienteService al objeto local clientes
-      plan => this.planes = plan
-    );
-    
+    this.planService.getPlan().subscribe(plan => this.planes = plan)
     this.contratoService.getRecord().subscribe(
-      res => {
-        this.record = res
-        // console.log(this.record);
+      response => {
+        this.record = response
         this.dataSource = new MatTableDataSource<RecordProduccion>(this.record);
         this.dataSource.paginator = this.paginator;
       }
     );
-    // console.log(this.planes);
   }
-
-  // selectedLevel;
-
-  // selectedPlan;
-  
-  // selectedEstrategia;
-  
-  // selectedForma;
   
   valor: boolean = false
-  // selected(){
-  //   console.log(this.selectedLevel.name);
-  // }
-
-  // selectedFormas(){
-  //   console.log(this.selectedForma.name);
-  // }
-
-  // selectedPlanItem(){
-  //   console.log(this.selectedPlan);
-  // }
 }

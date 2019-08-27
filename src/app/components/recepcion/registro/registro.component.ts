@@ -23,6 +23,7 @@ import { EstrategiaService } from 'src/app/services/estrategia.service';
 import { Estrategia } from 'src/app/model/Estrategia';
 import { AsesorService } from 'src/app/services/asesores.service';
 import { Asesor } from 'src/app/model/Asesor';
+import { Contrato } from 'src/app/model/Contrato';
 
 @Component({
   selector: 'app-registro',
@@ -34,11 +35,12 @@ export class RegistroComponent implements OnInit {
   // Variables que serviran para obtener el objeto seleccionado de los combobox
   valorRestante: Number;
   selectedPlan: Number;
+  // fecha:Date;
   selectedForma: string;
   selectedEstrategia: string;
   selectedAsesor: string;
   codigoMatricula:string;
-  contrato: ContratoDTO = new ContratoDTO();
+  contrato: Contrato = new Contrato();
   // Arreglos que se llenaran con la respuesta de la API
   planes: Plan[];
   formas: Forma[];
@@ -101,7 +103,7 @@ export class RegistroComponent implements OnInit {
         this.planSeleccionado.costoMensual = this.planes[i].costoMensual;
         this.valorRestante = this.planSeleccionado.valorTotal.valueOf() - this.planSeleccionado.inscripcion.valueOf();
         // ---------------------------------------------
-        this.contrato.plan_id = this.planes[i].id;
+        this.contrato.plan = this.planes[i];
         console.log(this.contrato)
       }
     }
@@ -110,7 +112,7 @@ export class RegistroComponent implements OnInit {
   selectedFormaPago() {
     for (let i = 0; i < this.formas.length; i++) {
       if (this.formas[i].descripcion == this.selectedForma) {
-        this.contrato.forma_id = this.formas[i].id;
+        this.contrato.forma = this.formas[i];
       }
     }
     console.log(this.contrato)
@@ -119,7 +121,7 @@ export class RegistroComponent implements OnInit {
   selectedEstrategias(): void {
     this.estrategias.forEach(item => {
       if(item.descripcion == this.selectedEstrategia){
-        this.contrato.estrategia_id = item.id;
+        this.contrato.estrategia = item;
       }
     })
     console.log(this.contrato)
@@ -128,7 +130,7 @@ export class RegistroComponent implements OnInit {
   selectedAsesores(): void {
     this.asesores.forEach(item => {
       if(item.empleado.persona.nombre == this.selectedAsesor){
-        this.contrato.asesor_id = item.id;
+        this.contrato.asesor_id = item;
       }
     })
     console.log(this.contrato)
@@ -149,7 +151,8 @@ export class RegistroComponent implements OnInit {
             this.titular.id = this.codigoMatricula;
             this.titularService.create(this.titular, cliente.id)
               .subscribe(titular => {
-                console.log(titular)
+                // console.log(titular)
+                this.contrato.titular = titular
                 Swal.fire(`Titular Registrado`, `Titular ${persona.nombre} registrada con éxito!`, 'success');
               })
           });
@@ -173,7 +176,7 @@ export class RegistroComponent implements OnInit {
             console.log(this.alumno)
             this.alumnoService.create(this.alumno, cliente.id)
               .subscribe(alumno => {
-                console.log(alumno)
+                this.contrato.alumno = alumno
                 Swal.fire(`Alumno Registrado`, `Alumno ${persona.nombre} registrada con éxito!`, 'success');
               })
           })
@@ -184,16 +187,20 @@ export class RegistroComponent implements OnInit {
     // ----------------------------------------------------------------------
     // Insertando los valores en el contrato
     // ----------------------------------------------------------------------
-    this.contrato.alumno_id = this.codigoMatricula;
-    this.contrato.titular_id = this.codigoMatricula;
-    //this.contrato.fecha_contrato = new Date();
-    // console.log(this.contrato.fecha_contrato)
-    console.log(this.contrato.fecha_contrato)
+    // this.contrato.asesor_id = 1;
+    // this.contrato.estrategia_id = 1;
+    this.contrato.fecha_contrato = new Date();
+
+    console.log(this.contrato)
     this.contratoService.create(this.contrato)
       .subscribe(_contrato => {
-        console.log(_contrato);
+        console.log('Contrato devuelto' + _contrato);
         Swal.fire(`Matricula Registrada`, `Matricula registrada con éxito!`, 'success');
         this.router.navigate(['/record']);
       })
+  }
+
+  mostrarfecha(){
+    console.log(this.contrato.fecha_contrato)
   }
 }

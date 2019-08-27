@@ -47,11 +47,13 @@ export class FormTitularComponent implements OnInit {
             this.clienteTitularDTO.cedula = cliente.cedula
             this.clienteTitularDTO.direccion = cliente.direccion
             this.clienteTitularDTO.persona_id = cliente.persona.id
+            // Llamando al correo correspondiente de la persona
+            this.telefonoService.getTelefono(cliente.id).subscribe(telefono => this.telefonoTitular = telefono)
+            this.correoService.getCorreo(cliente.id).subscribe(correo => this.correoTitular = correo)
+            
             // Llamando al servicio persona
             this.personaService.getPersona(cliente.persona.id).subscribe(persona => this.personaTitular = persona)
           })
-          this.telefonoService.getTelefono(cliente_id).subscribe(telefono => this.telefonoTitular = telefono)
-          this.correoService.getCorreo(cliente_id).subscribe(correo => this.correoTitular = correo)
         })
       }
     })

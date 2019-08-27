@@ -35,20 +35,15 @@ export class ContratoService {
                 let records = response as RecordProduccion[];
                 return records.map(record => {
                     //Usando datePipe para formatear las fechas
-                    let datePite = new DatePipe('es-NI');
-                    record.fecha = datePite.transform(record.fecha, 'EEEE dd, MMMM yyyy');
+                    // let datePite = new DatePipe('es-NI');
+                    // record.fecha = datePite.transform(record.fecha, 'EEEE dd, MMMM yyyy');
                     return record;
-                });
-            }),
-            tap(response => {
-                response.forEach(record => {
-                    console.log(record.fecha+' -> '+record.titular);
                 });
             })
         );
     }
 
-    create(contrato: ContratoDTO): Observable<Contrato> {
+    create(contrato: Contrato): Observable<Contrato> {
         return this.http.post<Contrato>(this.urlEndPoint, contrato, { headers: this.httpHeaders })
     }
 

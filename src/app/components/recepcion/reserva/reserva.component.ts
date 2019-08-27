@@ -17,16 +17,7 @@ export class ReservaComponent implements OnInit {
   constructor(private detalleTutoriaService:DetalleTutoriaService,private nivelService:NivelService) {}
 
   ngOnInit() {
-    this.nivelService.getNiveles().subscribe(
-      nivel => {
-        this.niveles = nivel
-        console.log(this.niveles)
-      }
-    )
-    this.detalleTutoriaService.getDetalleTutorias().subscribe(
-      tutoria => {
-        this.reservas = tutoria
-      }
-    )
+    this.nivelService.getNiveles().subscribe( nivel => this.niveles = nivel)
+    this.detalleTutoriaService.getDetalleTutorias().subscribe(tutoria => this.reservas = tutoria)
   }
 }
