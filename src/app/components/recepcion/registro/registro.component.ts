@@ -23,7 +23,6 @@ import { EstrategiaService } from 'src/app/services/estrategia.service';
 import { Estrategia } from 'src/app/model/Estrategia';
 import { AsesorService } from 'src/app/services/asesores.service';
 import { Asesor } from 'src/app/model/Asesor';
-import { Contrato } from 'src/app/model/Contrato';
 
 @Component({
   selector: 'app-registro',
@@ -40,7 +39,7 @@ export class RegistroComponent implements OnInit {
   selectedEstrategia: string;
   selectedAsesor: string;
   codigoMatricula:string;
-  contrato: Contrato = new Contrato();
+  contrato: ContratoDTO = new ContratoDTO();
   // Arreglos que se llenaran con la respuesta de la API
   planes: Plan[];
   formas: Forma[];
@@ -103,7 +102,7 @@ export class RegistroComponent implements OnInit {
         this.planSeleccionado.costoMensual = this.planes[i].costoMensual;
         this.valorRestante = this.planSeleccionado.valorTotal.valueOf() - this.planSeleccionado.inscripcion.valueOf();
         // ---------------------------------------------
-        this.contrato.plan = this.planes[i];
+        this.contrato.plan_id = this.planes[i].id;
         console.log(this.contrato)
       }
     }
@@ -112,7 +111,7 @@ export class RegistroComponent implements OnInit {
   selectedFormaPago() {
     for (let i = 0; i < this.formas.length; i++) {
       if (this.formas[i].descripcion == this.selectedForma) {
-        this.contrato.forma = this.formas[i];
+        this.contrato.forma_id = this.formas[i].id;
       }
     }
     console.log(this.contrato)
@@ -121,7 +120,7 @@ export class RegistroComponent implements OnInit {
   selectedEstrategias(): void {
     this.estrategias.forEach(item => {
       if(item.descripcion == this.selectedEstrategia){
-        this.contrato.estrategia = item;
+        this.contrato.estrategia_id = item.id;
       }
     })
     console.log(this.contrato)
@@ -130,7 +129,7 @@ export class RegistroComponent implements OnInit {
   selectedAsesores(): void {
     this.asesores.forEach(item => {
       if(item.empleado.persona.nombre == this.selectedAsesor){
-        this.contrato.asesor_id = item;
+        this.contrato.asesor_id = item.id;
       }
     })
     console.log(this.contrato)
@@ -152,7 +151,7 @@ export class RegistroComponent implements OnInit {
             this.titularService.create(this.titular, cliente.id)
               .subscribe(titular => {
                 // console.log(titular)
-                this.contrato.titular = titular
+                this.contrato.titular_id = titular.id
                 Swal.fire(`Titular Registrado`, `Titular ${persona.nombre} registrada con éxito!`, 'success');
               })
           });
@@ -176,7 +175,7 @@ export class RegistroComponent implements OnInit {
             console.log(this.alumno)
             this.alumnoService.create(this.alumno, cliente.id)
               .subscribe(alumno => {
-                this.contrato.alumno = alumno
+                this.contrato.alumno_id = alumno.id
                 Swal.fire(`Alumno Registrado`, `Alumno ${persona.nombre} registrada con éxito!`, 'success');
               })
           })
@@ -187,10 +186,10 @@ export class RegistroComponent implements OnInit {
     // ----------------------------------------------------------------------
     // Insertando los valores en el contrato
     // ----------------------------------------------------------------------
-    // this.contrato.asesor_id = 1;
+    this.contrato.asesor_id = 1;
     // this.contrato.estrategia_id = 1;
-    this.contrato.fecha_contrato = new Date();
-
+    this.contrato.fecha_contrato = '23-08-2019';
+  
     console.log(this.contrato)
     this.contratoService.create(this.contrato)
       .subscribe(_contrato => {

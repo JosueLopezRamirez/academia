@@ -17,8 +17,8 @@ export class ContratoService {
     // private urlEndPoint: string = 'http://localhost:8081/api/contratos';
 
     private httpHeaders = new HttpHeaders({
-        'Content-Type': 'application/json'
-        // 'Access-Control-Allow-Origin': '*'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
     })
 
     constructor(private http: HttpClient) { }
@@ -43,7 +43,7 @@ export class ContratoService {
         );
     }
 
-    create(contrato: Contrato): Observable<Contrato> {
+    create(contrato: ContratoDTO): Observable<Contrato> {
         return this.http.post<Contrato>(this.urlEndPoint, contrato, { headers: this.httpHeaders })
     }
 
