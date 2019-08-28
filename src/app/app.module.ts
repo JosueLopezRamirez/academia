@@ -31,7 +31,7 @@ import { ContratoService } from './services/contrato.service';
 import { AsesorService } from './services/asesores.service';
 import { ClientesModule } from './components/recepcion/clientes/clientes.module';
 
-// registerLocaleData(localeES,'es-NI');
+registerLocaleData(localeES,'es-NI');
 
 @NgModule({
   declarations: [

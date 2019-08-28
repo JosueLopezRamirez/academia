@@ -150,8 +150,6 @@ export class RegistroComponent implements OnInit {
             this.titular.id = this.codigoMatricula;
             this.titularService.create(this.titular, cliente.id)
               .subscribe(titular => {
-                // console.log(titular)
-                this.contrato.titular_id = titular.id
                 Swal.fire(`Titular Registrado`, `Titular ${persona.nombre} registrada con éxito!`, 'success');
               })
           });
@@ -175,7 +173,6 @@ export class RegistroComponent implements OnInit {
             console.log(this.alumno)
             this.alumnoService.create(this.alumno, cliente.id)
               .subscribe(alumno => {
-                this.contrato.alumno_id = alumno.id
                 Swal.fire(`Alumno Registrado`, `Alumno ${persona.nombre} registrada con éxito!`, 'success');
               })
           })
@@ -188,7 +185,8 @@ export class RegistroComponent implements OnInit {
     // ----------------------------------------------------------------------
     this.contrato.asesor_id = 1;
     // this.contrato.estrategia_id = 1;
-    this.contrato.fecha_contrato = '23-08-2019';
+    this.contrato.alumno_id = this.codigoMatricula;
+    this.contrato.titular_id = this.codigoMatricula;
   
     console.log(this.contrato)
     this.contratoService.create(this.contrato)
@@ -200,6 +198,6 @@ export class RegistroComponent implements OnInit {
   }
 
   mostrarfecha(){
-    console.log(this.contrato.fecha_contrato)
+    console.log(this.contrato.fechaContrato)
   }
 }

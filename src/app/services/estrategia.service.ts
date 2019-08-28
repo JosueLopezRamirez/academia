@@ -11,8 +11,8 @@ export class EstrategiaService {
 
   constructor(private http: HttpClient) { }
 
-  private urlEndPoint:string = "http://localhost:8080/excellence/api/estrategias";
-  // private urlEndPoint: string = 'http://localhost:8081/api/formas';
+  // private urlEndPoint:string = "http://localhost:8080/excellence/api/estrategias";
+  private urlEndPoint: string = 'http://localhost:8081/api/estrategias';
 
   getEstrategia(): Observable<Estrategia[]>{
     return this.http.get(this.urlEndPoint).pipe(

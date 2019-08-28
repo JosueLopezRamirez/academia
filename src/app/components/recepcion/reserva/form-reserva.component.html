@@ -71,16 +71,16 @@
         <tr class="text-white text-center">
           <th>Cod. Alumno</th>
           <th>Nombre Completo</th>
-          <th>Activo</th>
+          <th>Nivel</th>
           <th>Reprogramar</th>
           <th>Cancelar</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="text-white text-justify" style="font-size: 14px;" *ngFor="let item of alumnos_reserva">
-          <td>{{ item.titular_id }}</td>
+        <tr class="text-white text-center" style="font-size: 14px;" *ngFor="let item of alumnos_reserva">
+          <td>{{ item.id }}</td>
           <td>{{ item.nombre }}</td>
-          <td>{{ item.activo }}</td>
+          <td>{{ item.nivel }}</td>
           <td>
               <button type="button" name="reprogramar" class="btn btn-primary btn-sm">Reprogramar</button>
             </td>

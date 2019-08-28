@@ -11,8 +11,8 @@ import { DetalleTutoriaDTO } from '../model/DTO/DetalleTutoriaDTO';
 })
 export class DetalleTutoriaService {
 
-  private urlEndPoint: string = 'http://localhost:8080/excellence/api/detalle-tutoria';
-  // private urlEndPoint: string = 'http://localhost:8081/api/alumnos';
+  // private urlEndPoint: string = 'http://localhost:8080/excellence/api/detalle-tutoria';
+  private urlEndPoint: string = 'http://localhost:8081/api/detalle-tutoria';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 

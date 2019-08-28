@@ -10,8 +10,8 @@ export class FormaService {
 
   constructor(private http: HttpClient) { }
 
-  private urlEndPoint:string = "http://localhost:8080/excellence/api/formas";
-  // private urlEndPoint: string = 'http://localhost:8081/api/formas';
+  // private urlEndPoint:string = "http://localhost:8080/excellence/api/formas";
+  private urlEndPoint: string = 'http://localhost:8081/api/formas';
 
   getForma(): Observable<Forma[]>{
     return this.http.get(this.urlEndPoint).pipe(

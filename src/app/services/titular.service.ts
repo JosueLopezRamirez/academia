@@ -11,8 +11,8 @@ import { TitularDatos } from '../model/Petitions/TitularDatos';
 })
 export class TitularService {
 
-  private urlEndPoint: string = 'http://localhost:8080/excellence/api/titulares';
-  // private urlEndPoint: string = 'http://localhost:8081/api/titulares';
+  // private urlEndPoint: string = 'http://localhost:8080/excellence/api/titulares';
+  private urlEndPoint: string = 'http://localhost:8081/api/titulares';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 

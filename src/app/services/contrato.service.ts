@@ -13,8 +13,8 @@ import { DatePipe } from '@angular/common';
 })
 export class ContratoService {
 
-    private urlEndPoint: string = 'http://localhost:8080/excellence/api/contratos';
-    // private urlEndPoint: string = 'http://localhost:8081/api/contratos';
+    // private urlEndPoint: string = 'http://localhost:8080/excellence/api/contratos';
+    private urlEndPoint: string = 'http://localhost:8081/api/contratos';
 
     private httpHeaders = new HttpHeaders({
         'Content-Type': 'application/json',
@@ -35,8 +35,8 @@ export class ContratoService {
                 let records = response as RecordProduccion[];
                 return records.map(record => {
                     //Usando datePipe para formatear las fechas
-                    // let datePite = new DatePipe('es-NI');
-                    // record.fecha = datePite.transform(record.fecha, 'EEEE dd, MMMM yyyy');
+                    let datePite = new DatePipe('es-NI');
+                    record.fecha = datePite.transform(record.fecha, 'EEEE dd, MMMM yyyy');
                     return record;
                 });
             })

@@ -12,6 +12,9 @@ import { TutorService } from 'src/app/services/tutor.service';
 import { TutoriaService } from 'src/app/services/tutoria.service';
 import { UnidadService } from 'src/app/services/unidad.service';
 import { AlumnoReserva } from 'src/app/model/Petitions/AlumnoReserva';
+import { Reserva } from 'src/app/model/Petitions/Reserva';
+import { AlumnoService } from 'src/app/services/alumno.service';
+import { detalleReserva } from 'src/app/model/Petitions/detalleReserva';
 
 @Component({
   selector: 'app-form-reserva',
@@ -24,7 +27,8 @@ export class FormReservaComponent implements OnInit {
   detalle:DetalleTutoriaDTO = new DetalleTutoriaDTO();
 
   // Variable para realizar la reserva
-  alumnos_reserva: AlumnoReserva[];
+  alumnos_reserva: Reserva[];
+  detalleReserva: detalleReserva = new detalleReserva();
 
   // Variables para llamar a servicios
   nivel:Nivel = new Nivel();
@@ -34,7 +38,7 @@ export class FormReservaComponent implements OnInit {
   alumno:Alumno = new Alumno();
 
   constructor(private detalleService:DetalleTutoriaService,private nivelService:NivelService,private tutoriaService:TutoriaService,
-    private tutorService:TutorService,private unidadService:UnidadService,private router: Router,private activatedRoute: ActivatedRoute) { }
+    private tutorService:TutorService,private unidadService:UnidadService,private alumnoService:AlumnoService,private router: Router,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.cargarDatos()
@@ -48,6 +52,9 @@ export class FormReservaComponent implements OnInit {
         this.detalleService.getDetalle(detalle_id).subscribe((detalle) => {
           // asignando el detalle de la reserva a nuestro objeto que se mostrara en el formulacion
           this.detalle = detalle
+          this.detalleReserva.fecha = this.detalle.fecha
+          this.detalleReserva.hora = this.detalle.hora
+          this.alumnoService.getAlumnoReserva(this.detalleReserva).subscribe(reserva => this.alumnos_reserva = reserva)
           //Llamando los servicios correspondientes a tablas catalogo que corresponden a la reserva como tal para visualizarlas en el formulario
           this.nivelService.getNivel(this.detalle.nivel_id).subscribe( nivel => this.nivel = nivel)
           this.unidadService.getUnidad(this.detalle.unidad_id).subscribe(unidad => this.unidad = unidad)
@@ -59,6 +66,7 @@ export class FormReservaComponent implements OnInit {
   }
 
   create(): void{
-    console.log('hola bebe')
+    // console.log('hola bebe')
+    
   }
 }

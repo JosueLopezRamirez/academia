@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, pipe } from 'rxjs';
 import { Alumno } from '../model/Alumno';
 import { map } from 'rxjs/operators';
 import { AlumnoDatos } from '../model/Petitions/AlumnoDatos';
+import { Reserva } from '../model/Petitions/Reserva';
+import { detalleReserva } from '../model/Petitions/detalleReserva';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlumnoService {
 
-  private urlEndPoint: string = 'http://localhost:8080/excellence/api/alumnos';
-  // private urlEndPoint: string = 'http://localhost:8081/api/alumnos';
+  // private urlEndPoint: string = 'http://localhost:8080/excellence/api/alumnos';
+  private urlEndPoint: string = 'http://localhost:8081/api/alumnos';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
@@ -21,6 +23,10 @@ export class AlumnoService {
     return this.http.get(this.urlEndPoint).pipe(
       map(response => response as Alumno[])
     );
+  }
+
+  getAlumnoReserva(reserva: detalleReserva): Observable<Reserva[]> {
+    return this.http.post<Reserva[]>(`${this.urlEndPoint}-reserva-activa`,reserva, {headers: this.httpHeaders})
   }
 
   getAlumnoInfo(): Observable<AlumnoDatos[]> {
