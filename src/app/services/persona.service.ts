@@ -6,8 +6,8 @@ import { map,} from 'rxjs/operators';
 
 @Injectable()
 export class PersonaService {
-  // private urlEndPoint: string = 'http://localhost:8080/excellence/api/personas';
-  private urlEndPoint: string = 'http://localhost:8081/api/personas';
+  private urlEndPoint: string = 'http://localhost:8080/excellence/api/personas';
+  // private urlEndPoint: string = 'http://localhost:8081/api/personas';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 

@@ -1,94 +1,97 @@
-<div class="card bg-dark text-white rounded-0" style="height: 55vh;">
-  <div class="card-header">Datos del Alumno</div>
-  <div class="card-body">
+<div class="bg-dark" style="min-height: 100vh;">
+  <div class="card bg-dark text-white rounded-0" style="height: 55vh;">
+    <div class="card-header">Detalle de la Tutoria</div>
+    <div class="card-body">
 
-    <form>
-      <div class="form-group row">
-        <label for="id" class="col-form-label col-sm-2">Codigo Alumno</label>
-        <div class="col-sm-4">
-          <input type="text" class="form-control" [(ngModel)]="alumno.id" name="id">
+      <form>
+        <div class="form-group row">
+          <label for="id" class="col-form-label col-sm-2">Codigo Alumno</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="alumno.id" name="id">
+          </div>
+
+          <label for="fecha" class="col-form-label col-sm-2">Fecha</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="detalle.fecha" name="fecha" readonly>
+          </div>
         </div>
 
-        <label for="fecha" class="col-form-label col-sm-2">Fecha</label>
-        <div class="col-sm-4">
-          <input type="text" class="form-control" [(ngModel)]="detalle.fecha" name="fecha" readonly>
-        </div>
-      </div>
+        <div class="form-group row">
+          <label for="apellido" class="col-form-label col-sm-2">Hora</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="detalle.hora" name="hora" readonly>
+          </div>
 
-      <div class="form-group row">
-        <label for="apellido" class="col-form-label col-sm-2">Hora</label>
-        <div class="col-sm-4">
-          <input type="text" class="form-control" [(ngModel)]="detalle.hora" name="hora" readonly>
-        </div>
-
-        <label for="nombre" class="col-form-label col-sm-2">Nivel</label>
-        <div class="col-sm-4">
-          <input type="text" class="form-control" [(ngModel)]="nivel.descripcion" name="nivel" readonly>
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="correo" class="col-form-label col-sm-2">Unidad</label>
-        <div class="col-sm-4">
-          <input type="text" class="form-control" [(ngModel)]="unidad.descripcion" name="unidad" readonly>
+          <label for="nombre" class="col-form-label col-sm-2">Nivel</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="nivel.descripcion" name="nivel" readonly>
+          </div>
         </div>
 
-        <label for="nombre" class="col-form-label col-sm-2">Tutoria</label>
-        <div class="col-sm-4">
-          <input type="text" class="form-control" [(ngModel)]="tutoria.descripcion" name="tutoria" readonly>
-        </div>
-      </div>
+        <div class="form-group row">
+          <label for="correo" class="col-form-label col-sm-2">Unidad</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="unidad.descripcion" name="unidad" readonly>
+          </div>
 
-      <div class="form-group row">
-        <label for="telefono" class="col-form-label col-sm-2">Tutor</label>
-        <div class="col-sm-4">
-          <input type="text" class="form-control" [(ngModel)]="tutor.nombre" name="tutor" readonly>
+          <label for="nombre" class="col-form-label col-sm-2">Tutoria</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="tutoria.descripcion" name="tutoria" readonly>
+          </div>
         </div>
-      </div>
 
-      <div class="form-group row">
-        <div class="col-sm-4">
-          <button class="btn btn-primary" role="button" (click)='create()'
-            *ngIf="detalle.id">Reservar</button>
+        <div class="form-group row">
+          <label for="telefono" class="col-form-label col-sm-2">Tutor</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="tutor.nombre" name="tutor" readonly>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-4">
+            <button class="btn btn-primary" role="button" (click)='create()' *ngIf="detalle.id">Reservar</button>
             <!-- *ngIf="detalle.id else elseBlock">Reserva</button> -->
 
-          <!-- <ng-template #elseBlock>
-            <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
-          </ng-template> -->
+            <!-- <ng-template #elseBlock>
+              <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
+            </ng-template> -->
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 
-<div class="card bg-dark text-white rounded-0" style="height: 45vh;">
-  <div class="card-header">Alumnos con Reserva</div>
-  <div class="card-body text-primary">
-    <!-- <h5 class="card-title">Listado de Titulares</h5> -->
+  <div class="card bg-dark text-white rounded-0">
+    <div class="card-header">Alumnos con Reserva</div>
+    <div class="card-body text-primary">
+      <!-- <h5 class="card-title">Listado de Titulares</h5> -->
 
-    <table class="table table-bordered table-striped">
-      <thead>
-        <tr class="text-white text-center">
-          <th>Cod. Alumno</th>
-          <th>Nombre Completo</th>
-          <th>Nivel</th>
-          <th>Reprogramar</th>
-          <th>Cancelar</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="text-white text-center" style="font-size: 14px;" *ngFor="let item of alumnos_reserva">
-          <td>{{ item.id }}</td>
-          <td>{{ item.nombre }}</td>
-          <td>{{ item.nivel }}</td>
-          <td>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr class="text-white text-center">
+            <th>Cod. Alumno</th>
+            <th>Nombre Completo</th>
+            <th>Nivel</th>
+            <th>Reprogramar</th>
+            <th>Cancelar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="text-white text-center" style="font-size: 14px;" *ngFor="let item of alumnos_reserva">
+            <td>{{ item.id }}</td>
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.nivel }}</td>
+            <td>
               <button type="button" name="reprogramar" class="btn btn-primary btn-sm">Reprogramar</button>
             </td>
             <td>
-              <button type="button" name="cancelar" (click)='delete(titular)' class="ml-1 btn btn-danger btn-sm">Cancelar</button>
+              <button type="button" name="cancelar" (click)='delete(titular)'
+                class="ml-1 btn btn-danger btn-sm">Cancelar</button>
             </td>
-        </tr>
-      </tbody>
-    </table>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
+
 </div>

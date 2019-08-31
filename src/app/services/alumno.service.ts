@@ -12,8 +12,8 @@ import { detalleReserva } from '../model/Petitions/detalleReserva';
 })
 export class AlumnoService {
 
-  // private urlEndPoint: string = 'http://localhost:8080/excellence/api/alumnos';
-  private urlEndPoint: string = 'http://localhost:8081/api/alumnos';
+  private urlEndPoint: string = 'http://localhost:8080/excellence/api/alumnos';
+  // private urlEndPoint: string = 'http://localhost:8081/api/alumnos';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 

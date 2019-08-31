@@ -10,8 +10,8 @@ import { map } from 'rxjs/operators';
 })
 export class UnidadService {
 
-  // private urlEndPoint: string = 'http://localhost:8080/excellence/api/unidad';
-  private urlEndPoint: string = 'http://localhost:8081/api/unidad';
+  private urlEndPoint: string = 'http://localhost:8080/excellence/api/unidad';
+  // private urlEndPoint: string = 'http://localhost:8081/api/unidad';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 

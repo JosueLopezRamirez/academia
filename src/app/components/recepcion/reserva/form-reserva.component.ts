@@ -13,8 +13,12 @@ import { TutoriaService } from 'src/app/services/tutoria.service';
 import { UnidadService } from 'src/app/services/unidad.service';
 import { AlumnoReserva } from 'src/app/model/Petitions/AlumnoReserva';
 import { Reserva } from 'src/app/model/Petitions/Reserva';
+import { ReservaModel } from 'src/app/model/ReservaModel';
 import { AlumnoService } from 'src/app/services/alumno.service';
 import { detalleReserva } from 'src/app/model/Petitions/detalleReserva';
+import { ReservaModule } from './reserva.module';
+import { ReservaService } from 'src/app/services/reserva.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-reserva',
@@ -37,7 +41,7 @@ export class FormReservaComponent implements OnInit {
   unidad:Unidad = new Unidad();
   alumno:Alumno = new Alumno();
 
-  constructor(private detalleService:DetalleTutoriaService,private nivelService:NivelService,private tutoriaService:TutoriaService,
+  constructor(private reservaService:ReservaService,private detalleService:DetalleTutoriaService,private nivelService:NivelService,private tutoriaService:TutoriaService,
     private tutorService:TutorService,private unidadService:UnidadService,private alumnoService:AlumnoService,private router: Router,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -66,7 +70,16 @@ export class FormReservaComponent implements OnInit {
   }
 
   create(): void{
-    // console.log('hola bebe')
-    
+    let reserva: ReservaModel = new ReservaModel();
+  
+    reserva.alumno_id = this.alumno.id;
+    reserva.detalle_id = this.detalle.id;
+    reserva.aprovada = false;
+    reserva.reprogramada = false;
+    console.log(reserva)
+    this.reservaService.create(reserva).subscribe(reserva => {
+      Swal.fire('Reserva Exitosa!!',`El alumno reservo con exito!`,'success')
+      this.router.navigate([`/reserva`])
+    })
   }
 }

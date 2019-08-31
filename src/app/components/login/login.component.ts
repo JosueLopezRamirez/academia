@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Usuario } from '../../model/Usuario';
 import { LoginService } from 'src/app/services/login.service';
 import { User } from 'src/app/model/Petitions/User';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -16,13 +17,21 @@ export class LoginComponent implements OnInit{
   @Output() usuarioLogeado = new EventEmitter();
 
   onUsuarioLogeado(usuario: Usuario){
-    for(let i = 0;i<this.users.length;i++){
-      if(this.users[i].username == this.usuario.getUsername() && this.users[i].password == this.usuario.getPassword()){
+    let cont = 0;
+    this.users.forEach(item => {
+      if(item.username === this.usuario.getUsername() && item.password === this.usuario.getPassword()){
         usuario.setStatusLogin(true);
         this.usuarioLogeado.emit(usuario);
+      }else{
+        cont++;
       }
-    }
-    console.log("Login Exitoso..");
+
+      if(cont != this.users.length){
+        Swal.fire('Inicio de sesion exitoso!!','Usuario logeado correctamente','success');
+      }else{
+        Swal.fire('Inicio de sesion fallido','Ingrese credenciales validas','error');
+      }
+    })
   }
 
   ngOnInit() {
