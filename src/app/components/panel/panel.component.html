@@ -5,7 +5,7 @@
         <img class="nav-link active" href="#" src="../../../assets/img/logo-2.png">
       </li>
     </ul>
-    <div class="recepcion" *ngIf="true">
+    <div class="recepcion" *ngIf="categoria === 0">
       <ul class="nav flex-column">
         <div class="container pl-0 pr-0">
           <hr style="background-color: white; margin: 15px -15px;">
@@ -54,7 +54,7 @@
             </div>
           </div>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <div class="container">
             <div class="row justify-content-center" routerLinkActive="active">
               <a class="nav-link" href="#" routerLink="/lista">
@@ -62,11 +62,11 @@
               </a>
             </div>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
     <!-- Seccion Administrador -->
-    <div class="administracion" *ngIf="false">
+    <div class="administracion" *ngIf="categoria === 0">
       <ul class="nav flex-column align-items-center">
         <div class="container pl-0 pr-0">
           <hr style="background-color: white; margin: 15px -15px;">
@@ -79,7 +79,7 @@
         <li class="nav-item">
           <div class="container">
             <div class="row justify-content-center" routerLinkActive="active">
-              <a class="nav-link" href="#" routerLink="/clientes">
+              <a class="nav-link" href="#" routerLink="/lista">
                 <p class="text-light" style="font-size: .8rem">Lista de Clientes</p>
               </a>
             </div>
@@ -89,8 +89,8 @@
         <li class="nav-item">
           <div class="container">
             <div class="row justify-content-center" routerLinkActive="active">
-              <a style="font-size: 0.8rem;  color: white;" class="nav-link" href="#" routerLink="/pagos-pendientes">
-                <p class="text-light" style="font-size: .8rem">Pagos Pendientes</p>
+              <a class="nav-link" href="#" routerLink="/pagos">
+                <p class="text-light" style="font-size: .8rem">Pagos de Mensualidad</p>
               </a>
             </div>
           </div>

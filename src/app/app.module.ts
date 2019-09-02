@@ -30,6 +30,7 @@ import { AlumnoService } from './services/alumno.service';
 import { ContratoService } from './services/contrato.service';
 import { AsesorService } from './services/asesores.service';
 import { ClientesModule } from './components/recepcion/clientes/clientes.module';
+import { PagosModule } from './components/administracion/pagos/pagos.module';
 
 registerLocaleData(localeES,'es-NI');
 
@@ -54,7 +55,8 @@ registerLocaleData(localeES,'es-NI');
     BrowserAnimationsModule,
     ReservaModule,
     ClientesModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PagosModule
   ],
   providers: [
     PersonaService,

@@ -15,7 +15,7 @@ const routes: Routes = [
     {path: 'alumnos',component: ListaAlumnosComponent}
   ]},
   {path: 'alumnos/form/:id', component: FormAlumnoComponent},
-  {path: 'titulares/form/:id', component: FormTitularComponent},
+  {path: 'titulares/form/:id', component: FormTitularComponent}
 ];
 
 @NgModule({
