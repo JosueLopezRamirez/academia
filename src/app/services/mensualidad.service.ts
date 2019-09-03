@@ -27,6 +27,19 @@ export class MensualidadService {
         );
     }
 
+    getAtrasados(): Observable<Pagos[]> {
+        return this.http.get(`${this.urlEndPoint}-atrasados`).pipe(
+            map(response => {
+                let mensualidad = response as Pagos[];
+                return mensualidad.map(men => {
+                    let datePite = new DatePipe('es-NI');
+                    men.fecha_pago = datePite.transform(men.fecha_pago, 'EEEE dd, MMMM yyyy');
+                    return men;
+                });
+            })
+        );
+    }
+
     getPendientes(pago: Pago): Observable<Pagos[]> {
         return this.http.post(`${this.urlEndPoint}-pendientes`,pago,{headers: this.httpHeaders}).pipe(
             map(response => {
