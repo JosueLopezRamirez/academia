@@ -9,8 +9,8 @@ import { map } from 'rxjs/operators';
 })
 export class NivelService {
 
-  private urlEndPoint: string = 'http://localhost:8080/excellence/api/nivel';
-  // private urlEndPoint: string = 'http://localhost:8081/api/nivel';
+  // private urlEndPoint: string = 'http://localhost:8080/excellence/api/nivel';
+  private urlEndPoint: string = 'http://localhost:8081/api/nivel';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 

@@ -9,8 +9,8 @@ import { map } from 'rxjs/operators';
 })
 export class TutoriaService {
 
-  private urlEndPoint: string = 'http://localhost:8080/excellence/api/tutorias';
-  // private urlEndPoint: string = 'http://localhost:8081/api/tutorias';
+  // private urlEndPoint: string = 'http://localhost:8080/excellence/api/tutorias';
+  private urlEndPoint: string = 'http://localhost:8081/api/tutorias';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 

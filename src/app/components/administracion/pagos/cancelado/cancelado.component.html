@@ -11,8 +11,21 @@
                 <th>Fecha Pago</th>
                 <th>Monto</th>
                 <th>Saldo</th>
+                <th>Cancelar Pago</th>
               </tr>
             </thead>
+            <tbody>
+              <tr class="text-justify" style="font-size: 13px;" *ngFor="let item of cancelados">
+                <td>{{ item.id }}</td>
+                <td>{{ item.nombre }}</td>
+                <td>{{ item.fecha_pago }}</td>
+                <td>{{ item.valor_pagar }}</td>
+                <td>{{ item.saldo_pendiente }}</td>
+                <td>
+                  <button type="button" name="edit" class="btn btn-primary btn-sm" (click)="realizarPago(item.mensualidad_id)">Cancelar</button>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>

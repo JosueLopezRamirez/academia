@@ -22,7 +22,7 @@
                   <td>{{ item.valor_pagar }}</td>
                   <td>{{ item.saldo_pendiente }}</td>
                   <td>
-                    <button type="button" name="edit" class="btn btn-primary btn-sm" >Pagar</button>
+                    <button type="button" name="edit" class="btn btn-primary btn-sm" (click)=realizarPago(item.mensualidad_id)>Pagar</button>
                   </td>
                 </tr>
               </tbody>

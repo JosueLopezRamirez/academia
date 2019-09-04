@@ -11,8 +11,8 @@ export class PlanService {
 
   constructor(private http: HttpClient) { }
 
-  private urlEndPoint:string = "http://localhost:8080/excellence/api/planes";
-  // private urlEndPoint: string = 'http://localhost:8081/api/planes';
+  // private urlEndPoint:string = "http://localhost:8080/excellence/api/planes";
+  private urlEndPoint: string = 'http://localhost:8081/api/planes';
 
   getPlan(): Observable<Plan[]>{
     return this.http.get(this.urlEndPoint).pipe(

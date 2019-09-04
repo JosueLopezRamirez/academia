@@ -13,8 +13,8 @@ import { DatePipe } from '@angular/common';
 })
 export class ContratoService {
 
-    private urlEndPoint: string = 'http://localhost:8080/excellence/api/contratos';
-    // private urlEndPoint: string = 'http://localhost:8081/api/contratos';
+    // private urlEndPoint: string = 'http://localhost:8080/excellence/api/contratos';
+    private urlEndPoint: string = 'http://localhost:8081/api/contratos';
 
     private httpHeaders = new HttpHeaders({
         'Content-Type': 'application/json',

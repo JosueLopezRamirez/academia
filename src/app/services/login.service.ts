@@ -12,7 +12,8 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  private urlEndPoint:string = "http://localhost:8080/excellence/api/findAllUsuarios";
+  // private urlEndPoint:string = "http://localhost:8080/excellence/api/findAllUsuarios";
+  private urlEndPoint:string = "http://localhost:8081/api/findAllUsuarios";
 
   getUsuario(): Observable<User[]>{
     return this.http.get(this.urlEndPoint).pipe(

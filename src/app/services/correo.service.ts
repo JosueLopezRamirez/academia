@@ -9,8 +9,8 @@ import { Correo } from '../model/Correo';
 })
 export class CorreoService {
 
-  private urlEndPoint: string = 'http://localhost:8080/excellence/api/correos';
-  // private urlEndPoint: string = 'http://localhost:8081/api/correos';
+  // private urlEndPoint: string = 'http://localhost:8080/excellence/api/correos';
+  private urlEndPoint: string = 'http://localhost:8081/api/correos';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 

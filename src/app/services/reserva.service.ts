@@ -9,8 +9,8 @@ import { ReservaModel } from '../model/ReservaModel';
 })
 export class ReservaService {
 
-  private urlEndPoint: string = 'http://localhost:8080/excellence/api/reservas';
-  // private urlEndPoint: string = 'http://localhost:8081/api/reservas';
+  // private urlEndPoint: string = 'http://localhost:8080/excellence/api/reservas';
+  private urlEndPoint: string = 'http://localhost:8081/api/reservas';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 

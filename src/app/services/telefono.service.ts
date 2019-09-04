@@ -9,8 +9,8 @@ import { map } from 'rxjs/operators';
 })
 export class TelefonoService {
 
-  private urlEndPoint: string = 'http://localhost:8080/excellence/api/telefonos';
-  // private urlEndPoint: string = 'http://localhost:8081/api/telefonos';
+  // private urlEndPoint: string = 'http://localhost:8080/excellence/api/telefonos';
+  private urlEndPoint: string = 'http://localhost:8081/api/telefonos';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 

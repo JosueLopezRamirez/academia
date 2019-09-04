@@ -4,4 +4,5 @@ export class Pagos {
     fecha_pago: string;
     valor_pagar: number;
     saldo_pendiente: number;
+    mensualidad_id:number;
 }

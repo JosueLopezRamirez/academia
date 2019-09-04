@@ -5,13 +5,14 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Pago } from '../model/Petitions/Pago';
 import { DatePipe } from '@angular/common';
+import { EfectuarPago } from '../model/Petitions/EfectuarPago';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MensualidadService {
 
-  // private urlEndPoint: string = 'http://localhost:8080/excellence/api/mensualidades';
+//   private urlEndPoint: string = 'http://localhost:8080/excellence/api/mensualidades';
     private urlEndPoint: string = 'http://localhost:8081/api/mensualidades';
 
     private httpHeaders = new HttpHeaders({
@@ -53,9 +54,28 @@ export class MensualidadService {
             })
         );
     }
-
+    // mensualidades-canceladas
+    getCancelados(pago: Pago): Observable<Pagos[]> {
+        return this.http.post(`${this.urlEndPoint}-canceladas`,pago,{headers: this.httpHeaders}).pipe(
+            map(response => {
+                let mensualidad = response as Pagos[];
+                return mensualidad.map(men => {
+                    //Usando datePipe para formatear las fechas
+                    let datePite = new DatePipe('es-NI');
+                    men.fecha_pago = datePite.transform(men.fecha_pago, 'EEEE dd, MMMM yyyy');
+                    return men;
+                });
+            })
+        );
+    }
+    
+    // Metodo para crear una nueva mensualidad
     create(mensualidad: Pagos): Observable<Pagos> {
         return this.http.post<Pagos>(this.urlEndPoint, mensualidad, { headers: this.httpHeaders })
+    }
+
+    cambiarEstado(pago:EfectuarPago): Observable<any>{
+        return this.http.post<any>(`${this.urlEndPoint}-pagado`, pago, { headers : this.httpHeaders }) 
     }
 
     getMensualidad(id): Observable<Pagos> {
