@@ -42,7 +42,6 @@ export class ListaTitularesComponent implements OnInit {
       reverseButtons: true
     }).then((result) => {
       //codigo que se ejecutara si fue presionado el boton de eliminar del swal
-      
       if (result.value) {
         let cambio: estadoCliente = new estadoCliente();
         cambio.id = titular.cliente_id;

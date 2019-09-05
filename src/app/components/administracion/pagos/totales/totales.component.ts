@@ -13,7 +13,8 @@ import * as jsPDF from 'jspdf';
 export class TotalesComponent implements OnInit {
 
   cancelados: Pagos[];
-  constructor(private mensualidadService: MensualidadService,private router: Router,private activatedRoute: ActivatedRoute) { }
+  constructor(private mensualidadService: MensualidadService,private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.mensualidadService.getMensualidades().subscribe(response => this.cancelados = response)

@@ -30,8 +30,10 @@ export class EstadoCuentaComponent implements OnInit {
   private correoTitular: Correo = new Correo();
 
   historial: EstadoCuenta[];
-  constructor(private mensualidadService: MensualidadService,private personaService:PersonaService,private clienteService:ClienteService,private telefonoService:TelefonoService,
-    private correoService:CorreoService,private titularService: TitularService,private router: Router,private activatedRoute: ActivatedRoute) {
+  constructor(private mensualidadService: MensualidadService,private personaService:PersonaService,
+    private clienteService:ClienteService,private telefonoService:TelefonoService,
+    private correoService:CorreoService,private titularService: TitularService,
+    private router: Router,private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {

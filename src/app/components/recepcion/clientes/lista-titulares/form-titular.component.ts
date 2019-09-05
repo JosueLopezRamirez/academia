@@ -26,8 +26,9 @@ export class FormTitularComponent implements OnInit {
   private telefonoTitular: Telefono = new Telefono();
   private correoTitular: Correo = new Correo();
 
-  constructor(private personaService:PersonaService,private clienteService:ClienteService,private telefonoService:TelefonoService,
-    private correoService:CorreoService,private titularService: TitularService,private router: Router,private activatedRoute: ActivatedRoute) { }
+  constructor(private personaService:PersonaService,private clienteService:ClienteService,
+    private telefonoService:TelefonoService,private correoService:CorreoService,
+    private titularService: TitularService,private router: Router,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.cargarCliente()

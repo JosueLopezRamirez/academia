@@ -41,8 +41,10 @@ export class FormReservaComponent implements OnInit {
   unidad:Unidad = new Unidad();
   alumno:Alumno = new Alumno();
 
-  constructor(private reservaService:ReservaService,private detalleService:DetalleTutoriaService,private nivelService:NivelService,private tutoriaService:TutoriaService,
-    private tutorService:TutorService,private unidadService:UnidadService,private alumnoService:AlumnoService,private router: Router,private activatedRoute: ActivatedRoute) { }
+  constructor(private reservaService:ReservaService,private detalleService:DetalleTutoriaService,
+    private nivelService:NivelService,private tutoriaService:TutoriaService,
+    private tutorService:TutorService,private unidadService:UnidadService,private alumnoService:AlumnoService,
+    private router: Router,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.cargarDatos()

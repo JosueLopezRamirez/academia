@@ -14,7 +14,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class PendienteComponent implements OnInit {
 
-  constructor(private mensualidadService: MensualidadService,private router: Router,private activatedRoute: ActivatedRoute) { }
+  constructor(private mensualidadService: MensualidadService,private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   pendientes: Pagos[];
   pago: Pago = new Pago();

@@ -14,12 +14,12 @@ export class AtrasadoComponent implements OnInit {
 
   atrasados: Pagos[];
 
-  constructor(private mensualidadService: MensualidadService,private router: Router,private activatedRoute: ActivatedRoute) { }
+  constructor(private mensualidadService: MensualidadService,private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.mensualidadService.getAtrasados().subscribe(response => {
       this.atrasados = response
-      // console.log(response)
       console.log(this.atrasados)
     })
   }

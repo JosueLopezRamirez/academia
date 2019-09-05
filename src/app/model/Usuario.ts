@@ -1,5 +1,3 @@
-
-
 export class Usuario {
 
   private username: string;
@@ -16,35 +14,19 @@ export class Usuario {
 
   //Getters and Setters
 
-  getUsername(){
-    return this.username;
-  }
+  getUsername(){return this.username;}
 
-  setUsername(username: string){
-    this.username = username;
-  }
+  setUsername(username: string){this.username = username;}
 
-  getPassword(){
-    return this.password;
-  }
+  getPassword(){return this.password;}
 
-  setPassword(password: string){
-    this.password = password;
-  }
+  setPassword(password: string){this.password = password;}
 
-  getStatusLogin(){
-    return this.statusLogin;
-  }
+  getStatusLogin(){return this.statusLogin;}
 
-  setStatusLogin(statusLogin: boolean){
-    this.statusLogin = statusLogin;
-  }
+  setStatusLogin(statusLogin: boolean){this.statusLogin = statusLogin;}
 
-  getCategory(){
-    return this.category;
-  }
+  getCategory(){return this.category;}
 
-  setCategory(category: number){
-    this.category = category;
-  }
+  setCategory(category: number){this.category = category;}
 }

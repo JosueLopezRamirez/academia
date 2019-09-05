@@ -24,8 +24,9 @@ export class FormAlumnoComponent implements OnInit {
   private telefonoAlumno: Telefono = new Telefono();
   private correoAlumno: Correo = new Correo();
 
-  constructor(private personaService:PersonaService,private clienteService:ClienteService,private telefonoService:TelefonoService,
-    private correoService:CorreoService,private alumnoService: AlumnoService,private router: Router,private activatedRoute: ActivatedRoute) { }
+  constructor(private personaService:PersonaService,private clienteService:ClienteService,
+    private telefonoService:TelefonoService,private correoService:CorreoService,
+    private alumnoService: AlumnoService,private router: Router,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.cargarCliente()

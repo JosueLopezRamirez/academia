@@ -40,9 +40,7 @@ export class LoginComponent implements OnInit{
     );
   }
 
-  constructor(private loginService: LoginService) {
-    //console.log("LoginComponent Cargado Exitosamente...");
-  }
+  constructor(private loginService: LoginService) {}
 
   // Definiendo las variables
   texto = "Iniciar Sesion";

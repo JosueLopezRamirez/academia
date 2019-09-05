@@ -17,7 +17,8 @@ export class CanceladoComponent implements OnInit {
 
   cancelados: Pagos[];
   pago: Pago = new Pago();
-  constructor(private mensualidadService: MensualidadService,private router: Router,private activatedRoute: ActivatedRoute) { }
+  constructor(private mensualidadService: MensualidadService,private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     let fecha = new Date();
@@ -33,7 +34,7 @@ export class CanceladoComponent implements OnInit {
   }
 
 
-  realizarPago(id:number):void {
+  cancelarPago(id:number):void {
     let pago: EfectuarPago = new EfectuarPago();
     pago.id = id;
     pago.pagado = false;

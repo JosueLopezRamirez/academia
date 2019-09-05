@@ -67,31 +67,22 @@ export class RegistroComponent implements OnInit {
   // Instanciar servicios a utilizar
 
   constructor(private personaService: PersonaService, private clienteService: ClienteService,
-    private titularService: TitularService, private alumnoService: AlumnoService, private contratoService: ContratoService, private planService: PlanService,
-    private formaService: FormaService,private estrategiaService: EstrategiaService,private asesorService: AsesorService,
+    private titularService: TitularService, private alumnoService: AlumnoService,
+    private contratoService: ContratoService, private planService: PlanService,
+    private formaService: FormaService,private estrategiaService: EstrategiaService,
+    private asesorService: AsesorService,
     private telefonoService:TelefonoService,private correoService:CorreoService, private router: Router) { }
 
   ngOnInit() {
     // Llenar el combobox del select de meses
-    this.planService.getPlan().subscribe(
-      plan => this.planes = plan
-    );
+    this.planService.getPlan().subscribe(plan => this.planes = plan)
 
     // Llenar el combobox del select de forma de pagos
-    this.formaService.getForma().subscribe(
-      forma => this.formas = forma
-    );
+    this.formaService.getForma().subscribe(forma => this.formas = forma)
 
-    this.estrategiaService.getEstrategia().subscribe(
-      estrategia => this.estrategias = estrategia
-    );
+    this.estrategiaService.getEstrategia().subscribe(estrategia => this.estrategias = estrategia)
     
-    this.asesorService.getAsesores().subscribe(
-      asesor => { 
-        this.asesores = asesor;
-        // console.log(this.asesores);
-      }
-    );
+    this.asesorService.getAsesores().subscribe(asesor => this.asesores = asesor)
   }
 
   // -------------------------------------------------------------------------------
