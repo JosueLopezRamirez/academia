@@ -23,6 +23,8 @@ import { EstrategiaService } from 'src/app/services/estrategia.service';
 import { Estrategia } from 'src/app/model/Estrategia';
 import { AsesorService } from 'src/app/services/asesores.service';
 import { Asesor } from 'src/app/model/Asesor';
+import { TelefonoService } from 'src/app/services/telefono.service';
+import { CorreoService } from 'src/app/services/correo.service';
 
 @Component({
   selector: 'app-registro',
@@ -66,7 +68,8 @@ export class RegistroComponent implements OnInit {
 
   constructor(private personaService: PersonaService, private clienteService: ClienteService,
     private titularService: TitularService, private alumnoService: AlumnoService, private contratoService: ContratoService, private planService: PlanService,
-    private formaService: FormaService,private estrategiaService: EstrategiaService,private asesorService: AsesorService, private router: Router) { }
+    private formaService: FormaService,private estrategiaService: EstrategiaService,private asesorService: AsesorService,
+    private telefonoService:TelefonoService,private correoService:CorreoService, private router: Router) { }
 
   ngOnInit() {
     // Llenar el combobox del select de meses
@@ -148,6 +151,9 @@ export class RegistroComponent implements OnInit {
           .subscribe(cliente => {
             // Ligando al titular con el cliente
             this.titular.id = this.codigoMatricula;
+            //Registrar telefono
+            this.telefonoService.create(this.telefonoTitular).subscribe(response => console.log(response))
+            this.correoService.create(this.correoTitular).subscribe(response => console.log(response))
             this.titularService.create(this.titular, cliente.id)
               .subscribe(titular => {
                 Swal.fire(`Titular Registrado`, `Titular ${persona.nombre} registrada con éxito!`, 'success');

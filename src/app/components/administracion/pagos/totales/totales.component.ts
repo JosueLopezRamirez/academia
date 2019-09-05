@@ -36,7 +36,7 @@ export class TotalesComponent implements OnInit {
   generarPDF(){
     let id = document.getElementById("pendiente")
     let pdf = new jsPDF()
-    pdf.text("Mensualidades a cobrar en el mes corriente",10,10)
+    pdf.text("Historial de todas las mensualidades",10,10)
     pdf.fromHTML(id,10,15)
     pdf.save("Historial-Mensualidad-Total.pdf")
   }

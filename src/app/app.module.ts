@@ -31,6 +31,8 @@ import { ContratoService } from './services/contrato.service';
 import { AsesorService } from './services/asesores.service';
 import { ClientesModule } from './components/recepcion/clientes/clientes.module';
 import { PagosModule } from './components/administracion/pagos/pagos.module';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 registerLocaleData(localeES,'es-NI');
 
@@ -56,7 +58,8 @@ registerLocaleData(localeES,'es-NI');
     ReservaModule,
     ClientesModule,
     ReactiveFormsModule,
-    PagosModule
+    PagosModule,
+    PdfViewerModule
   ],
   providers: [
     PersonaService,
@@ -69,3 +72,6 @@ registerLocaleData(localeES,'es-NI');
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+platformBrowserDynamic().bootstrapModule(AppModule);

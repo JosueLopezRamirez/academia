@@ -12,4 +12,6 @@ export class ReportesComponent implements OnInit {
   ngOnInit() {
   }
 
+  pdfSrc: string = '/manual-ayuda.pdf';
+
 }

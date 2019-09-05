@@ -40,7 +40,7 @@ export class AtrasadoComponent implements OnInit {
   generarPDF(){
     let id = document.getElementById("pendiente")
     let pdf = new jsPDF()
-    pdf.text("Mensualidades a cobrar en el mes corriente",10,10)
+    pdf.text("Mensualidades atrasadas que deben cobrarse",10,10)
     pdf.fromHTML(id,10,15)
     pdf.save("Atrasados.pdf")
   }

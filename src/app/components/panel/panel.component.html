@@ -18,7 +18,7 @@
         <!-- Lista -->
         <li class="nav-item">
           <div class="container pl-0 pr-0">
-            <div class="row justify-content-center" routerLinkActive="active">
+            <div class="row justify-content-start" routerLinkActive="active">
               <a class="nav-link" href="#" routerLink="/reserva">
                 <p class="text-light" style="font-size: .8rem">
                   <i class="fas fa-ticket-alt"></i>
@@ -29,8 +29,8 @@
         </li>
         <!--  -->
         <li class="nav-item">
-          <div class="container">
-            <div class="row justify-content-center" routerLinkActive="active">
+          <div class="container pl-0 pr-0">
+            <div class="row justify-content-start" routerLinkActive="active">
               <a class="nav-link" href="#" routerLink="/registro">
                 <p class="text-light" style="font-size: .8rem">
                   <i class="fas fa-user-graduate"></i>
@@ -41,8 +41,8 @@
         </li>
         <!--  -->
         <li *ngIf="false" class="nav-item">
-          <div class="container">
-            <div class="row justify-content-center" routerLinkActive="active">
+          <div class="container pl-0 pr-0">
+            <div class="row justify-content-start" routerLinkActive="active">
               <a class="nav-link" href="#" routerLink="/historial">
                 <p class="text-light" style="font-size: .8rem">Green Cards</p>
               </a>
@@ -51,8 +51,8 @@
         </li>
         <!-- -->
         <li class="nav-item">
-          <div class="container">
-            <div class="row justify-content-center" routerLinkActive="active">
+          <div class="container pl-0 pr-0">
+            <div class="row justify-content-start" routerLinkActive="active">
               <a class="nav-link" href="#" routerLink="/record">
                 <p class="text-light" style="font-size: .8rem">
                   <i class="fas fa-th-list"></i>
@@ -65,7 +65,7 @@
     </div>
     <!-- Seccion Administrador -->
     <div class="administracion" *ngIf="categoria === 0">
-      <ul class="nav flex-column align-items-center">
+      <ul class="nav flex-column align-items-start">
         <div class="container pl-0 pr-0" *ngIf="categoria !== 0">
           <hr style="background-color: white; margin: 15px -15px;">
           <div class="row justify-content-center align-items-center">
@@ -75,20 +75,21 @@
         </div>
         <!--  -->
         <li class="nav-item">
-          <div class="container">
-            <div class="row justify-content-center" routerLinkActive="active">
+          <div class="container pl-0 pr-0">
+            <div class="row justify-content-start" routerLinkActive="active">
               <a class="nav-link" href="#" routerLink="/lista">
                 <p class="text-light" style="font-size: .8rem">
                   <i class="fas fa-address-book"></i>
-                  Lista de Clientes</p>
+                  Lista de Clientes
+                </p>
               </a>
             </div>
           </div>
         </li>
         <!--  -->
         <li class="nav-item">
-          <div class="container">
-            <div class="row justify-content-center" routerLinkActive="active">
+          <div class="container pl-0 pr-0">
+            <div class="row justify-content-start" routerLinkActive="active">
               <a class="nav-link" href="#" routerLink="/pagos">
                 <p class="text-light" style="font-size: .8rem">
                   <i class="fas fa-dollar-sign"></i>
@@ -113,10 +114,11 @@
         <li class="nav-item">
           <div class="container">
             <div class="row justify-content-center" routerLinkActive="active">
-              <a style="font-size: 0.8rem;  color: white;" class="nav-link" href="#" routerLink="/mantenimiento">
+              <a style="font-size: 0.8rem;  color: white;" class="nav-link" href="#" routerLink="/ayuda">
                 <p class="text-light" style="font-size: .8rem">
                   <i class="fas fa-tools"></i>
-                  Mantenimiento</p>
+                  Ayuda
+                </p>
               </a>
             </div>
           </div>

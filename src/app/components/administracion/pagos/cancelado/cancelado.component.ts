@@ -49,7 +49,7 @@ export class CanceladoComponent implements OnInit {
   generarPDF(){
     let id = document.getElementById("pendiente")
     let pdf = new jsPDF()
-    pdf.text("Mensualidades a cobrar en el mes corriente",10,10)
+    pdf.text("Mensualidades canceladas en el mes corriente",10,10)
     pdf.fromHTML(id,10,15)
     pdf.save("Cancelado.pdf")
   }
