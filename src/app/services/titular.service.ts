@@ -23,7 +23,12 @@ export class TitularService {
       map(response => response as Titular[])
     );
   }
-  
+  //nombres
+  getTitularNombre(): Observable<any[]>{
+    return this.http.get<any[]>(`${this.urlEndPoint}-nombres`)
+  }
+
+
   create(titular: TitularDTO,id: Number) : Observable<Titular> {
     return this.http.post<Titular>(`${this.urlEndPoint}/${id}`, titular, {headers: this.httpHeaders})
   }

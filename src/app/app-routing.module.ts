@@ -11,7 +11,7 @@ const routes: Routes = [
   {path:'registro', component: RegistroComponent},
   {path:'record', component: RecordComponent},
   {path:'historial', component: GreenCardComponent},
-  {path:'estado-cuenta', component: EstadoCuentaComponent},
+  {path:'estado-cuenta/:id', component: EstadoCuentaComponent},
   {path:'mantenimiento', component: ReportesComponent}
 
 ];

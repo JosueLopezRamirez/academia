@@ -36,7 +36,7 @@ export class ContratoService {
                 return records.map(record => {
                     //Usando datePipe para formatear las fechas
                     let datePite = new DatePipe('es-NI');
-                    record.fecha = datePite.transform(record.fecha, 'EEEE dd, MMMM yyyy');
+                    record.fecha = datePite.transform(record.fecha, 'dd/MM/yyyy');
                     return record;
                 });
             })

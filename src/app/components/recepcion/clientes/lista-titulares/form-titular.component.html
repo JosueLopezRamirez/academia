@@ -23,7 +23,9 @@
         <!--  -->
         <label for="nombre" class="col-form-label col-sm-2">Direccion Trabajo</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" [(ngModel)]="titular.direccionTrabajo" name="direccionTrabajo">
+          <!-- <input type="text" class="form-control" [(ngModel)]="titular.direccionTrabajo" name="direccionTrabajo"> -->
+          <textarea name="direccionTrabajo" class="form-control" [(ngModel)]="titular.direccionTrabajo" cols="30"
+              rows="3" style="resize: none;"></textarea>
         </div>
       </div>
 
@@ -49,7 +51,9 @@
       <div class="form-group row">
         <label for="direccion" class="col-form-label col-sm-2">Direccion</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" [(ngModel)]="clienteTitularDTO.direccion" name="direccion">
+          <!-- <input type="text" class="form-control" [(ngModel)]="clienteTitularDTO.direccion" name="direccion"> -->
+          <textarea name="direccion" class="form-control" [(ngModel)]="clienteTitularDTO.direccion" cols="30" rows="3"
+              style="resize: none;"></textarea>
         </div>
       </div>
 

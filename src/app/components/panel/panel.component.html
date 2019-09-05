@@ -7,13 +7,14 @@
     </ul>
     <div class="recepcion" *ngIf="categoria === 0">
       <ul class="nav flex-column">
-        <div class="container pl-0 pr-0">
+        <div class="container pl-0 pr-0" *ngIf="categoria !== 0">
           <hr style="background-color: white; margin: 15px -15px;">
           <div class="row justify-content-center align-items-center">
             <span style="font-size: .8rem" class="text-light">Recepcion</span>
           </div>
           <hr style="background-color: white; margin: 15px -15px;">
         </div>
+        <hr style="background-color: white; margin: 15px -15px;">
         <!-- Lista -->
         <li class="nav-item">
           <div class="container pl-0 pr-0">
@@ -65,7 +66,7 @@
     <!-- Seccion Administrador -->
     <div class="administracion" *ngIf="categoria === 0">
       <ul class="nav flex-column align-items-center">
-        <div class="container pl-0 pr-0">
+        <div class="container pl-0 pr-0" *ngIf="categoria !== 0">
           <hr style="background-color: white; margin: 15px -15px;">
           <div class="row justify-content-center align-items-center">
             <span style="font-size: 0.8rem ; color: white;" class="text-light">Administración</span>
@@ -97,7 +98,7 @@
           </div>
         </li>
         <!-- -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <div class="container">
             <div class="row justify-content-center" routerLinkActive="active">
               <a style="font-size: 0.8rem;  color: white;" class="nav-link" href="#" routerLink="/estado-cuenta">
@@ -107,7 +108,7 @@
               </a>
             </div>
           </div>
-        </li>
+        </li> -->
         <!--  -->
         <li class="nav-item">
           <div class="container">

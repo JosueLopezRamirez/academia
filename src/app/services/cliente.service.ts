@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Cliente } from '../model/Cliente';
 import { ClienteDTO } from '../model/DTO/ClienteDTO';
+import { estadoCliente } from '../model/DTO/estadoCliente';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,10 @@ export class ClienteService {
   
   create(cliente: ClienteDTO) : Observable<Cliente> {
     return this.http.post<Cliente>(this.urlEndPoint, cliente, {headers: this.httpHeaders})
+  }
+
+  cambiarEstado(cambio: estadoCliente): Observable<estadoCliente>{
+    return this.http.post<estadoCliente>(`${this.urlEndPoint}-cambio`, cambio, {headers: this.httpHeaders})
   }
 
   getCliente(id): Observable<Cliente>{

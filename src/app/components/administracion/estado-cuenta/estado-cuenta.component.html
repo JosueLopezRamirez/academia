@@ -4,74 +4,67 @@
     <div class="card-body">
 
       <form>
-          <div class="form-group row">
-              <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" [(ngModel)]="personaTitular.nombre" name="nombre">
-              </div>
-              <!--  -->
-              <label for="nombre" class="col-form-label col-sm-2">Trabajo</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" [(ngModel)]="titular.nombreTrabajo" name="nombreTrabajo">
-              </div>
-            </div>
-      
-            <div class="form-group row">
-              <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" [(ngModel)]="personaTitular.apellido" name="apellido">
-              </div>
-              <!--  -->
-              <label for="nombre" class="col-form-label col-sm-2">Direccion Trabajo</label>
-              <div class="col-sm-4">
-                <!-- <input type="text" class="form-control" [(ngModel)]="titular.direccionTrabajo" name="direccionTrabajo"> -->
-                <textarea name="direccionTrabajo" class="form-control" [(ngModel)]="titular.direccionTrabajo" cols="30" rows="3" style="resize: none;"></textarea>
-              </div>
-            </div>
-      
-            <div class="form-group row">
-              <label for="correo" class="col-form-label col-sm-2">Correo</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" [(ngModel)]="correoTitular.correo" name="correo">
-              </div>
-              <!--  -->
-              <label for="nombre" class="col-form-label col-sm-2">Telefono Trabajo</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" [(ngModel)]="titular.telefonoTrabajo" name="telefonoTrabajo">
-              </div>
-            </div>
-      
-            <div class="form-group row">
-              <label for="telefono" class="col-form-label col-sm-2">Telefono</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" [(ngModel)]="telefonoTitular.telefono" name="telef">
-              </div>
-            </div>
-      
-            <div class="form-group row">
-              <label for="direccion" class="col-form-label col-sm-2">Direccion</label>
-              <div class="col-sm-4">
-                <!-- <input type="" class="form-control" [(ngModel)]="clienteTitularDTO.direccion" name="direccion"> -->
-                <textarea name="direccion" class="form-control" [(ngModel)]="clienteTitularDTO.direccion" cols="30" rows="3" style="resize: none;"></textarea>
-              </div>
-            </div>
-      
-            <div class="form-group row">
-              <label for="salario" class="col-form-label col-sm-2">Salario</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" [(ngModel)]="titular.salario" name="salario">
-              </div>
-            </div>
-      
-            <!-- <div class="form-group row">
-              <div class="col-sm-4">
-                <button class="btn btn-primary" role="button" (click)='create()' *ngIf="!titular.id else elseBlock">Crear</button>
-            
-                <ng-template #elseBlock>
-                  <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
-                </ng-template>
-              </div>
-            </div> -->
+        <div class="form-group row">
+          <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="personaTitular.nombre" name="nombre">
+          </div>
+          <!--  -->
+          <label for="nombre" class="col-form-label col-sm-2">Trabajo</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="titular.nombreTrabajo" name="nombreTrabajo">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="personaTitular.apellido" name="apellido">
+          </div>
+          <!--  -->
+          <label for="nombre" class="col-form-label col-sm-2">Direccion Trabajo</label>
+          <div class="col-sm-4">
+            <!-- <input type="text" class="form-control" [(ngModel)]="titular.direccionTrabajo" name="direccionTrabajo"> -->
+            <textarea name="direccionTrabajo" class="form-control" [(ngModel)]="titular.direccionTrabajo" cols="30"
+              rows="3" style="resize: none;"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="correo" class="col-form-label col-sm-2">Correo</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="correoTitular.correo" name="correo">
+          </div>
+          <!--  -->
+          <label for="nombre" class="col-form-label col-sm-2">Telefono Trabajo</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="titular.telefonoTrabajo" name="telefonoTrabajo">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="telefono" class="col-form-label col-sm-2">Telefono</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="telefonoTitular.telefono" name="telef">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="direccion" class="col-form-label col-sm-2">Direccion</label>
+          <div class="col-sm-4">
+            <!-- <input type="" class="form-control" [(ngModel)]="clienteTitularDTO.direccion" name="direccion"> -->
+            <textarea name="direccion" class="form-control" [(ngModel)]="clienteTitularDTO.direccion" cols="30" rows="3"
+              style="resize: none;"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="salario" class="col-form-label col-sm-2">Salario</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="titular.salario" name="salario">
+          </div>
+        </div>
+
       </form>
     </div>
   </div>
@@ -88,8 +81,8 @@
             <th>Fecha Pago</th>
             <th>Monto</th>
             <th>Saldo</th>
-            <th>Pagar</th>
-            <th>Cancelar Pago</th>
+            <th>Pagado</th>
+            <th>Accion</th>
           </tr>
         </thead>
         <tbody>
@@ -98,13 +91,22 @@
             <td>{{ item.fecha_pago }}</td>
             <td>{{ item.valor_pagar }}</td>
             <td>{{ item.saldo_pendiente }}</td>
+            <td>{{ item.pagado?'Si':'No' }}</td>
             <td>
-              <button type="button" name="edit" class="btn btn-primary btn-sm"
-                (click)=realizarPago(item.mensualidad_id)>Pagar</button>
-            </td>
-            <td>
-              <button type="button" name="edit" class="btn btn-primary btn-sm"
-                (click)="realizarPago(item.mensualidad_id)">Cancelar</button>
+              <div>
+                <button class="btn btn-danger" role="button" (click)="cancelarPago(item.mensualidad_id)"
+                  *ngIf="item.pagado else elseBlock">
+                  <i class="fas fa-window-close"></i>
+                  Cancelar
+                </button>
+
+                <ng-template #elseBlock>
+                  <button class="btn btn-success" role="button" (click)="realizarPago(item.mensualidad_id)">
+                    <i class="fas fa-dollar-sign"></i>
+                    Pagar
+                  </button>
+                </ng-template>
+              </div>
             </td>
           </tr>
         </tbody>

@@ -3,6 +3,8 @@ import { TitularDatos } from 'src/app/model/Petitions/TitularDatos';
 import { TitularService } from 'src/app/services/titular.service';
 import Swal from 'sweetalert2';
 import { Titular } from 'src/app/model/Titular';
+import { ClienteService } from 'src/app/services/cliente.service';
+import { estadoCliente } from 'src/app/model/DTO/estadoCliente';
 
 @Component({
   selector: 'app-lista-titulares',
@@ -13,7 +15,7 @@ export class ListaTitularesComponent implements OnInit {
 
   titulares: TitularDatos[];
 
-  constructor(private titularService: TitularService) { }
+  constructor(private titularService: TitularService,private clienteService: ClienteService) { }
 
   ngOnInit() {
     this.titularService.getTitularInfo().subscribe(
@@ -40,12 +42,18 @@ export class ListaTitularesComponent implements OnInit {
       reverseButtons: true
     }).then((result) => {
       //codigo que se ejecutara si fue presionado el boton de eliminar del swal
+      
       if (result.value) {
-        swalWithBootstrapButtons.fire(
-          'Titular Dado de Baja!',
-          'El titular a sido dado de baja con exito!!',
-          'success'
-        )
+        let cambio: estadoCliente = new estadoCliente();
+        cambio.id = titular.cliente_id;
+        cambio.estado = false;
+        this.clienteService.cambiarEstado(cambio).subscribe(response => {
+          swalWithBootstrapButtons.fire(
+            'Titular Dado de Baja!',
+            'El titular a sido dado de baja con exito!!',
+            'success'
+          )
+        })
       } else if (
         //codigo en caso de que desee cancelar el dar de baja a un titular
         result.dismiss === Swal.DismissReason.cancel

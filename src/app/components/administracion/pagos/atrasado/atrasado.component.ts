@@ -31,7 +31,7 @@ export class AtrasadoComponent implements OnInit {
     this.mensualidadService.cambiarEstado(pago).subscribe(response => {
       console.log(response)
       if(response != null){
-        this.router.navigate(['/pagos/cancelados'])
+        this.router.navigate(['/pagos/totales'])
         Swal.fire('Pago realizado',`Pago realizado con exito!!`,'success')
       }
     })

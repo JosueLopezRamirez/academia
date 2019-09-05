@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { Pago } from '../model/Petitions/Pago';
 import { DatePipe } from '@angular/common';
 import { EfectuarPago } from '../model/Petitions/EfectuarPago';
+import { EstadoCuenta } from '../model/DTO/EstadoCuenta';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,7 @@ export class MensualidadService {
                 let mensualidades = response as Pagos[];
                 return mensualidades.map(men => {
                     let datePite = new DatePipe('es-NI');
-                    men.fecha_pago = datePite.transform(men.fecha_pago, 'EEEE dd, MMMM yyyy');
+                    men.fecha_pago = datePite.transform(men.fecha_pago, 'dd/MM/yyyy');
                     return men;
                 })
             })
@@ -41,7 +42,7 @@ export class MensualidadService {
                 let mensualidad = response as Pagos[];
                 return mensualidad.map(men => {
                     let datePite = new DatePipe('es-NI');
-                    men.fecha_pago = datePite.transform(men.fecha_pago, 'EEEE dd, MMMM yyyy');
+                    men.fecha_pago = datePite.transform(men.fecha_pago, 'dd/MM/yyyy');
                     return men;
                 });
             })
@@ -55,12 +56,28 @@ export class MensualidadService {
                 return mensualidad.map(men => {
                     //Usando datePipe para formatear las fechas
                     let datePite = new DatePipe('es-NI');
-                    men.fecha_pago = datePite.transform(men.fecha_pago, 'EEEE dd, MMMM yyyy');
+                    men.fecha_pago = datePite.transform(men.fecha_pago, 'dd/MM/yyyy');
                     return men;
                 });
             })
         );
     }
+
+    // Obtener estados de cuenta de un titular en especifico
+    getEstadoCuenta(id: string): Observable<EstadoCuenta[]> {
+        return this.http.post(`${this.urlEndPoint}-estado-cuenta/${id}`,{headers: this.httpHeaders}).pipe(
+            map(response => {
+                let mensualidad = response as EstadoCuenta[];
+                return mensualidad.map(men => {
+                    //Usando datePipe para formatear las fechas
+                    let datePite = new DatePipe('es-NI');
+                    men.fecha_pago = datePite.transform(men.fecha_pago, 'dd/MM/yyyy');
+                    return men;
+                });
+            })
+        );
+    }
+
     // mensualidades-canceladas
     getCancelados(pago: Pago): Observable<Pagos[]> {
         return this.http.post(`${this.urlEndPoint}-canceladas`,pago,{headers: this.httpHeaders}).pipe(
@@ -69,7 +86,7 @@ export class MensualidadService {
                 return mensualidad.map(men => {
                     //Usando datePipe para formatear las fechas
                     let datePite = new DatePipe('es-NI');
-                    men.fecha_pago = datePite.transform(men.fecha_pago, 'EEEE dd, MMMM yyyy');
+                    men.fecha_pago = datePite.transform(men.fecha_pago, 'dd/MM/yyyy');
                     return men;
                 });
             })
