@@ -12,7 +12,7 @@ const routes: Routes = [
   {path:'record', component: RecordComponent},
   {path:'historial', component: GreenCardComponent},
   {path:'estado-cuenta', component: EstadoCuentaComponent},
-  {path:'reportes', component: ReportesComponent}
+  {path:'mantenimiento', component: ReportesComponent}
 
 ];
 

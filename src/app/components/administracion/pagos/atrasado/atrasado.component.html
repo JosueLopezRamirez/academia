@@ -1,34 +1,36 @@
 <div class="container my-2 ml-0 mr-0 p-0">
-    <div class="row justify-content-center">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-body text-primary">
-            <table class="table table-bordered table-striped" style="font-size: 0.8rem;">
-              <thead class="bg-danger">
-                <tr>
-                  <th>No. Cuenta</th>
-                  <th>Nombre</th>
-                  <th>Fecha Pago</th>
-                  <th>Dias Mora</th>
-                  <th>Monto</th>
-                  <th>Saldo</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="text-justify" style="font-size: 13px;" *ngFor="let item of atrasados">
-                  <td>{{ item.id }}</td>
-                  <td>{{ item.nombre }}</td>
-                  <td>{{ item.fecha_pago }}</td>
-                  <td>{{ item.valor_pagar }}</td>
-                  <td>{{ item.saldo_pendiente }}</td>
-                  <td>
-                    <button type="button" name="edit" class="btn btn-primary btn-sm" (click)=realizarPago(item.mensualidad_id)>Pagar</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+  <button class="btn btn-primary mb-1" (click)="generarPDF()">Generar PDF</button>
+  <div class="row justify-content-center">
+    <div class="col-lg-12">
+      <div class="card">
+        <div id="pendiente" class="card-body text-primary">
+          <table class="table table-bordered table-striped" style="font-size: 0.8rem;">
+            <thead class="bg-danger">
+              <tr>
+                <th>No. Cuenta</th>
+                <th>Nombre</th>
+                <th>Fecha Pago</th>
+                <th>Dias Mora</th>
+                <th>Monto</th>
+                <th>Saldo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-justify" style="font-size: 13px;" *ngFor="let item of atrasados">
+                <td>{{ item.id }}</td>
+                <td>{{ item.nombre }}</td>
+                <td>{{ item.fecha_pago }}</td>
+                <td>{{ item.valor_pagar }}</td>
+                <td>{{ item.saldo_pendiente }}</td>
+                <td>
+                  <button type="button" name="edit" class="btn btn-primary btn-sm"
+                    (click)=realizarPago(item.mensualidad_id)>Pagar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
+</div>

@@ -5,6 +5,7 @@ import { Pago } from 'src/app/model/Petitions/Pago';
 import { EfectuarPago } from 'src/app/model/Petitions/EfectuarPago';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-cancelado',
@@ -43,5 +44,13 @@ export class CanceladoComponent implements OnInit {
         Swal.fire('Pago Cancelado',`Pago cancelado con exito!!`,'success')
       }
     })
+  }
+
+  generarPDF(){
+    let id = document.getElementById("pendiente")
+    let pdf = new jsPDF()
+    pdf.text("Mensualidades a cobrar en el mes corriente",10,10)
+    pdf.fromHTML(id,10,15)
+    pdf.save("Cancelado.pdf")
   }
 }

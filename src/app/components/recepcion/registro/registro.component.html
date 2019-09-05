@@ -35,33 +35,20 @@
                 <div class="col-lg-6">
                   <input type="text" placeholder="Apellidos" [(ngModel)]="personaTitular.apellido"
                     name="apellidoTitular" required>
-                  <!-- <p>{{ personaTitular.apellido}}</p> -->
                 </div>
               </div>
               <div class="row">
-                <!-- <div class="col-md-3 pr-0">
-                      <input type="text" placeholder="Fecha de Nacimiento" required>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="text" placeholder="Estado Civil" required>
-                    </div> -->
-                <!-- <div class="col-md-3 pr-0">
-                      <input type="text" placeholder="Profesion" required>
-                    </div> -->
                 <div class="col-md-6">
                   <input type="text" placeholder="Cedula de Identidad" [(ngModel)]="clienteTitularDTO.cedula"
                     name="cedula" required>
-                  <!-- <p>{{ clienteTitularDTO.cedula }}</p> -->
                 </div>
               </div>
               <div class="row flex-row">
                 <div class="col-md-6">
                   <textarea class="my-1 mb-0" placeholder="Direccion Residencia"
-                    [(ngModel)]="clienteTitularDTO.direccion" name="direccionDomicilio" cols="68" rows="2"></textarea>
-                  <!-- <p>{{ clienteTitularDTO.direccion }}</p> -->
+                    [(ngModel)]="clienteTitularDTO.direccion" name="direccionDomicilio" cols="68" rows="2" style="resize: none;"></textarea>
                   <input class="my-0" type="text" placeholder="Empresa" [(ngModel)]="titular.nombreTrabajo"
                     name="nombreEmpresa" required>
-                  <!-- <p>{{ titular.nombreTrabajo }}</p> -->
                 </div>
                 <div class="col-md-6">
                   <div class="container">
@@ -72,33 +59,17 @@
                         <p>{{ telefonoTitular.telefono }}</p>
                       </div>
                       <div class="col-sm-6">
-                        <!-- <div class="d-flex flex-row">
-                          <div class="custom-control custom-checkbox pr-1">
-                            <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                            <label class="custom-control-label" for="defaultUnchecked">Empleado</label>
-                          </div>
-                          <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="defaultUncheck">
-                            <label class="custom-control-label" for="defaultUncheck">Independiente</label>
-                          </div>
-                        </div> -->
-                        <!-- <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                                    <label class="custom-control-label" for="defaultUnchecked">Hogar</label>
-                            </div> -->
                       </div>
                       <div class="container">
                         <div class="row">
                           <div class="col-sm-8 pl-0 pr-0">
                             <textarea class="my-2 pb-0" placeholder="Direccion Trabajo"
                               [(ngModel)]="titular.direccionTrabajo" name="direccionTrabajo" cols="40"
-                              rows="2"></textarea>
-                            <!-- <p>{{ titular.direccionTrabajo }}</p> -->
+                              rows="2" style="resize: none;"></textarea>
                           </div>
                           <div class="col-sm-4 pl-0 pr-0">
                             <input class="my-2" type="text" placeholder="Telefono Trabajo"
                               [(ngModel)]="titular.telefonoTrabajo" name="telefono" style="height: 50px;" required>
-                            <!-- <p>{{ titular.telefonoTrabajo }}</p> -->
                           </div>
                         </div>
                       </div>

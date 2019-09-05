@@ -1,23 +1,114 @@
-<div class="container my-2">
-  <div class="row justify-content-center">
-    <div class="col-lg-12">
-      <div class="card mb-3 my-3">
-        <div class="card-header justify-content-center">Estado de Cuenta</div>
-        <div class="card-body text-primary">
-          <table class="table table-bordered table-striped" style="font-size: 0.8rem;">
-            <thead class="bg-danger" style="height: 5vh;">
-              <tr>
-                <th>No. Cuenta</th>
-                <th>Fecha Pago</th>
-                <th>Monto</th>
-                <th>Saldo</th>
-                <th>Estado Cuenta</th>
-              </tr>
-            </thead>
+<div class="bg-dark" style="min-height: 100vh;">
+  <div class="card bg-dark text-white rounded-0">
+    <div class="card-header">Datos Personales del Titular</div>
+    <div class="card-body">
 
-          </table>
-        </div>
-      </div>
+      <form>
+          <div class="form-group row">
+              <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" [(ngModel)]="personaTitular.nombre" name="nombre">
+              </div>
+              <!--  -->
+              <label for="nombre" class="col-form-label col-sm-2">Trabajo</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" [(ngModel)]="titular.nombreTrabajo" name="nombreTrabajo">
+              </div>
+            </div>
+      
+            <div class="form-group row">
+              <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" [(ngModel)]="personaTitular.apellido" name="apellido">
+              </div>
+              <!--  -->
+              <label for="nombre" class="col-form-label col-sm-2">Direccion Trabajo</label>
+              <div class="col-sm-4">
+                <!-- <input type="text" class="form-control" [(ngModel)]="titular.direccionTrabajo" name="direccionTrabajo"> -->
+                <textarea name="direccionTrabajo" class="form-control" [(ngModel)]="titular.direccionTrabajo" cols="30" rows="3" style="resize: none;"></textarea>
+              </div>
+            </div>
+      
+            <div class="form-group row">
+              <label for="correo" class="col-form-label col-sm-2">Correo</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" [(ngModel)]="correoTitular.correo" name="correo">
+              </div>
+              <!--  -->
+              <label for="nombre" class="col-form-label col-sm-2">Telefono Trabajo</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" [(ngModel)]="titular.telefonoTrabajo" name="telefonoTrabajo">
+              </div>
+            </div>
+      
+            <div class="form-group row">
+              <label for="telefono" class="col-form-label col-sm-2">Telefono</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" [(ngModel)]="telefonoTitular.telefono" name="telef">
+              </div>
+            </div>
+      
+            <div class="form-group row">
+              <label for="direccion" class="col-form-label col-sm-2">Direccion</label>
+              <div class="col-sm-4">
+                <!-- <input type="" class="form-control" [(ngModel)]="clienteTitularDTO.direccion" name="direccion"> -->
+                <textarea name="direccion" class="form-control" [(ngModel)]="clienteTitularDTO.direccion" cols="30" rows="3" style="resize: none;"></textarea>
+              </div>
+            </div>
+      
+            <div class="form-group row">
+              <label for="salario" class="col-form-label col-sm-2">Salario</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" [(ngModel)]="titular.salario" name="salario">
+              </div>
+            </div>
+      
+            <!-- <div class="form-group row">
+              <div class="col-sm-4">
+                <button class="btn btn-primary" role="button" (click)='create()' *ngIf="!titular.id else elseBlock">Crear</button>
+            
+                <ng-template #elseBlock>
+                  <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
+                </ng-template>
+              </div>
+            </div> -->
+      </form>
+    </div>
+  </div>
+
+  <div class="card bg-dark text-white rounded-0">
+    <div class="card-header">Estado de Cuenta Titular</div>
+    <div class="card-body text-primary">
+      <!-- <h5 class="card-title">Listado de Titulares</h5> -->
+
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr class="text-white text-center">
+            <th>No. Cuenta</th>
+            <th>Fecha Pago</th>
+            <th>Monto</th>
+            <th>Saldo</th>
+            <th>Pagar</th>
+            <th>Cancelar Pago</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="text-white text-center" style="font-size: 14px;" *ngFor="let item of historial">
+            <td>{{ item.id }}</td>
+            <td>{{ item.fecha_pago }}</td>
+            <td>{{ item.valor_pagar }}</td>
+            <td>{{ item.saldo_pendiente }}</td>
+            <td>
+              <button type="button" name="edit" class="btn btn-primary btn-sm"
+                (click)=realizarPago(item.mensualidad_id)>Pagar</button>
+            </td>
+            <td>
+              <button type="button" name="edit" class="btn btn-primary btn-sm"
+                (click)="realizarPago(item.mensualidad_id)">Cancelar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

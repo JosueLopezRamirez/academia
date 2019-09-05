@@ -22,9 +22,16 @@ export class MensualidadService {
 
     constructor(private http: HttpClient) { }
 
-    getMensualidades(): Observable<any[]> {
-        return this.http.get(this.urlEndPoint).pipe(
-            map(response => response as any[])
+    getMensualidades(): Observable<Pagos[]> {
+        return this.http.get(`${this.urlEndPoint}-totales`).pipe(
+            map(response => {
+                let mensualidades = response as Pagos[];
+                return mensualidades.map(men => {
+                    let datePite = new DatePipe('es-NI');
+                    men.fecha_pago = datePite.transform(men.fecha_pago, 'EEEE dd, MMMM yyyy');
+                    return men;
+                })
+            })
         );
     }
 

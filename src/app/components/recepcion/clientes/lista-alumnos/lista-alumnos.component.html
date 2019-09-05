@@ -1,5 +1,4 @@
 <div class="card mb-3 my-3">
-    <div class="card-header">Listado de Alumnos</div>
     <div class="card-body text-primary">
       <!-- <h5 class="card-title">Listado de Titulares</h5> -->
   
@@ -24,7 +23,10 @@
             <td>{{ alumno.telefono }}</td>
             <td>{{ alumno.correo }}</td>
             <td>
-              <button type="button" name="button" [routerLink]="['/alumnos/form',alumno.alumno_id]" class="btn btn-primary btn-sm">Editar</button>
+              <button type="button" name="button" [routerLink]="['/alumnos/form',alumno.alumno_id]" class="btn btn-primary btn-sm">
+                <i class="fas fa-user-edit"></i>
+                Editar
+              </button>
             </td>
           </tr>
         </tbody>

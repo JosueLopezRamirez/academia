@@ -1,39 +1,45 @@
 <div class="card mb-3 my-3">
-    <div class="card-header">Listado de Titulares</div>
-    <div class="card-body text-primary">
-      <!-- <h5 class="card-title">Listado de Titulares</h5> -->
-  
-      <table class="table table-bordered table-striped">
-        <thead>
-            <tr class="text-center" style="font-size: 13px;">
-              <th>Co. Matricula</th>
-              <th>Nombre</th>
-              <th>Salario</th>
-              <th>Labora</th>
-              <th>Telefono</th>
-              <th>Telefono Empresarial</th>
-              <th>Correo Electronico</th>
-              <th>Editar</th>
-              <th>Bajar</th>
-            </tr>
-        </thead>
-        <tbody>
-          <tr class="text-justify" style="font-size: 13px;" *ngFor="let titular of titulares">
-            <td>{{ titular.titular_id }}</td>
-            <td>{{ titular.nombre }}</td>
-            <td>{{ titular.salario }}</td>
-            <td>{{ titular.nombreTrabajo }}</td>
-            <td>{{ titular.telefonoPersonal }}</td>
-            <td>{{ titular.telefonoTrabajo }}</td>
-            <td>{{ titular.correoPersonal }}</td>
-            <td>
-              <button type="button" name="edit" class="btn btn-primary btn-sm" [routerLink]="['/titulares/form',titular.titular_id]" routerLinkActive="router-link-active" >Editar</button>
-            </td>
-            <td>
-              <button type="button" name="delete" (click)='delete(titular)' class="ml-1 btn btn-danger btn-sm">Bajar</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="card-body text-primary">
+    <!-- <h5 class="card-title">Listado de Titulares</h5> -->
+
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr class="text-center" style="font-size: 13px;">
+          <th>Co. Matricula</th>
+          <th>Nombre</th>
+          <th>Salario</th>
+          <th>Labora</th>
+          <th>Telefono</th>
+          <th>Telefono Empresarial</th>
+          <th>Correo Electronico</th>
+          <th>Editar</th>
+          <th>Bajar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-justify" style="font-size: 13px;" *ngFor="let titular of titulares">
+          <td>{{ titular.titular_id }}</td>
+          <td>{{ titular.nombre }}</td>
+          <td>{{ titular.salario }}</td>
+          <td>{{ titular.nombreTrabajo }}</td>
+          <td>{{ titular.telefonoPersonal }}</td>
+          <td>{{ titular.telefonoTrabajo }}</td>
+          <td>{{ titular.correoPersonal }}</td>
+          <td>
+            <button type="button" name="edit" class="btn btn-primary btn-sm"
+              [routerLink]="['/titulares/form',titular.titular_id]" routerLinkActive="router-link-active">
+              <i class="fas fa-user-edit"></i>
+              Editar
+            </button>
+          </td>
+          <td>
+            <button type="button" name="delete" (click)='delete(titular)' class="ml-1 btn btn-danger btn-sm">
+              <i class="fas fa-trash-alt"></i>
+              Baja
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>

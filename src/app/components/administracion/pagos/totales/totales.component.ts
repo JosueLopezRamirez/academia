@@ -1,38 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { Pagos } from 'src/app/model/Petitions/Pagos';
 import { MensualidadService } from 'src/app/services/mensualidad.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import Swal from 'sweetalert2';
+import { Router, ActivatedRoute } from '@angular/router';
 import { EfectuarPago } from 'src/app/model/Petitions/EfectuarPago';
+import Swal from 'sweetalert2';
 import * as jsPDF from 'jspdf';
 
 @Component({
-  selector: 'app-atrasado',
-  templateUrl: './atrasado.component.html'
+  selector: 'app-totales',
+  templateUrl: './totales.component.html'
 })
-export class AtrasadoComponent implements OnInit {
+export class TotalesComponent implements OnInit {
 
-  atrasados: Pagos[];
-
+  cancelados: Pagos[];
   constructor(private mensualidadService: MensualidadService,private router: Router,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.mensualidadService.getAtrasados().subscribe(response => {
-      this.atrasados = response
-      // console.log(response)
-      console.log(this.atrasados)
-    })
+    this.mensualidadService.getMensualidades().subscribe(response => this.cancelados = response)
   }
+
 
   realizarPago(id:number):void {
     let pago: EfectuarPago = new EfectuarPago();
     pago.id = id;
-    pago.pagado = true;
+    pago.pagado = false;
     this.mensualidadService.cambiarEstado(pago).subscribe(response => {
       console.log(response)
       if(response != null){
-        this.router.navigate(['/pagos/cancelados'])
-        Swal.fire('Pago realizado',`Pago realizado con exito!!`,'success')
+        this.router.navigate(['/pagos'])
+        Swal.fire('Pago Cancelado',`Pago cancelado con exito!!`,'success')
       }
     })
   }
@@ -42,6 +38,7 @@ export class AtrasadoComponent implements OnInit {
     let pdf = new jsPDF()
     pdf.text("Mensualidades a cobrar en el mes corriente",10,10)
     pdf.fromHTML(id,10,15)
-    pdf.save("Atrasados.pdf")
+    pdf.save("Historial-Mensualidad-Total.pdf")
   }
+
 }
